@@ -372,3 +372,27 @@
     @apply bg-input border border-border/50 rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-300 ease-in-out;
   }
 }
+
+/* Styles spécifiques pour le design Soho House */
+@layer utilities {
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
+  
+  .font-serif-elegant {
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  
+  .soho-hero-bg {
+    background-image: url('https://media.fastly.sohohousedigital.com/t_dc_base/sitecore-prod/images/dotcom-sites/brand-reset-crops/finals/01_desktop_hp_still.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .nav-link:hover {
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+  }
+}

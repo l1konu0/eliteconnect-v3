@@ -1,13 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
+import EliteConnectLogo from "@/components/elite-connect-logo";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header avec toggle de thème */}
+      {/* Header avec logo et toggle de thème */}
       <header className="absolute top-0 left-0 right-0 z-20 p-6">
-        <div className="max-w-6xl mx-auto flex justify-end">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-3">
+            <EliteConnectLogo size={32} />
+            <span className="text-lg font-semibold tracking-wide text-foreground">Elite Connect</span>
+          </div>
           <ThemeToggle />
         </div>
       </header>

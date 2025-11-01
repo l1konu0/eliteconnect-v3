@@ -131,18 +131,19 @@ export default function HomePage() {
           muted 
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-60"
+          style={{ zIndex: 1 }}
         >
           <source src="/videos/video tennis 3 eme choix.mov" type="video/quicktime" />
           <source src="/videos/video tennis 3 eme choix.mov" type="video/mp4" />
         </video>
         
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-[#0A0A0A]/60 to-[#0A0A0A]/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-[#0A0A0A]/60 to-[#0A0A0A]/80" style={{ zIndex: 2 }}></div>
         
         {/* Champagne Gold Accent */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-transparent to-[#D4AF37]/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-transparent to-[#D4AF37]/5" style={{ zIndex: 3 }}></div>
         
-        <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fade-in">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fade-in" style={{ zIndex: 4 }}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight tracking-tight">
             Where Ambition Meets Opportunity.
           </h1>

@@ -10,17 +10,11 @@ export default function HomePage() {
   const [showEventsDropdown, setShowEventsDropdown] = useState(false);
   const [showApplyModal, setShowApplyModal] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-[#F5F5F5]">
+    <div className="flex flex-col min-h-screen bg-[#F7F5F0] text-[#0A0A0A]">
       {/* HEADER */}
-      <header className="w-full bg-[#0A0A0A]/95 backdrop-blur-md fixed top-0 z-50 border-b border-[#2A2A2A]">
+      <header className="w-full bg-[#F7F5F0]/95 backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
             <EliteConnectLogo size={40} />
@@ -38,14 +32,14 @@ export default function HomePage() {
                 About
               </button>
               {showAboutDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg shadow-xl py-4 animate-slide-down">
-                  <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-4 animate-slide-down">
+                  <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Who We Are
                   </Link>
-                  <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                  <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Our Story
                   </Link>
-                  <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                  <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Our Values
                   </Link>
                 </div>
@@ -62,14 +56,14 @@ export default function HomePage() {
                 Membership
               </button>
               {showMembershipDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg shadow-xl py-4 animate-slide-down">
-                  <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-4 animate-slide-down">
+                  <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Join the Community
                   </Link>
-                  <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                  <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Membership Tiers
                   </Link>
-                  <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                  <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Privileges & Benefits
                   </Link>
                 </div>
@@ -86,14 +80,14 @@ export default function HomePage() {
                 Events
               </button>
               {showEventsDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg shadow-xl py-4 animate-slide-down">
-                  <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-4 animate-slide-down">
+                  <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Upcoming Events
                   </Link>
-                  <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                  <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Past Events
                   </Link>
-                  <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">
+                  <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">
                     Private Experiences
                   </Link>
                 </div>
@@ -138,32 +132,29 @@ export default function HomePage() {
         </video>
         
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-[#0A0A0A]/60 to-[#0A0A0A]/80" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" style={{ zIndex: 2 }}></div>
         
         {/* Champagne Gold Accent */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-transparent to-[#D4AF37]/5" style={{ zIndex: 3 }}></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-[#D4AF37]/10" style={{ zIndex: 3 }}></div>
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fade-in" style={{ zIndex: 4 }}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight tracking-tight">
             Where Ambition Meets Opportunity.
           </h1>
-          <p className="text-xl md:text-2xl text-[#CFCFCF] mb-12 max-w-2xl mx-auto leading-relaxed">
-            A private circle of leaders, creators, and investors shaping Tunisia's future together.
+          <p className="text-xl md:text-2xl text-white mb-12 max-w-2xl mx-auto leading-relaxed">
+            A private circle of leaders, creators, and investors shaping Tunisia&apos;s future together.
           </p>
-          <button 
-            onClick={() => {
-              scrollToSection('apply');
-              setShowApplyModal(true);
-            }}
-            className="border-2 border-white px-8 py-4 hover:bg-white hover:text-[#0A0A0A] transition-all duration-300 text-sm uppercase tracking-widest font-medium"
+          <Link 
+            href="/membership"
+            className="border-2 border-white px-8 py-4 hover:bg-white hover:text-[#0A0A0A] transition-all duration-300 text-sm uppercase tracking-widest font-medium inline-block"
           >
             Request Invitation
-          </button>
+          </Link>
         </div>
       </section>
 
       {/* PILLARS PREVIEW */}
-      <section className="py-24 px-6 bg-[#0A0A0A]">
+      <section className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Community & Lifestyle */}
@@ -174,7 +165,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className="text-2xl font-serif font-semibold">Community & Lifestyle</h3>
-              <p className="text-[#CFCFCF] leading-relaxed">
+              <p className="text-[#2C2C2C] leading-relaxed">
                 Meaningful connections that transcend business.
               </p>
             </div>
@@ -187,7 +178,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className="text-2xl font-serif font-semibold">Investment & Growth</h3>
-              <p className="text-[#CFCFCF] leading-relaxed">
+              <p className="text-[#2C2C2C] leading-relaxed">
                 Exclusive co-ownership and wealth-building opportunities.
               </p>
             </div>
@@ -200,7 +191,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className="text-2xl font-serif font-semibold">Advisory & Consulting</h3>
-              <p className="text-[#CFCFCF] leading-relaxed">
+              <p className="text-[#2C2C2C] leading-relaxed">
                 Strategic guidance for individuals and companies seeking excellence.
               </p>
             </div>
@@ -208,117 +199,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-24 px-6 bg-[#1A1A1A]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">About Elite Connect</h2>
-          </div>
-
-          {/* Who We Are */}
-          <div className="mb-16 space-y-6">
-            <h3 className="text-2xl font-serif font-semibold text-[#D4AF37]">Who We Are</h3>
-            <p className="text-lg text-[#CFCFCF] leading-relaxed max-w-3xl">
-              Elite Connect is a private circle dedicated to uniting Tunisia's most ambitious leaders and visionaries — offering access to powerful connections, curated opportunities, and a shared pursuit of legacy.
-            </p>
-          </div>
-
-          {/* Our Story */}
-          <div className="mb-16 space-y-6">
-            <h3 className="text-2xl font-serif font-semibold text-[#D4AF37]">Our Story</h3>
-            <p className="text-lg text-[#CFCFCF] leading-relaxed max-w-3xl">
-              Born from a desire to connect Tunisia's brightest minds, Elite Connect was founded to bridge social and professional ecosystems — blending business, culture, and influence in a single community.
-            </p>
-          </div>
-
-          {/* Our Values */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-serif font-semibold text-[#D4AF37]">Our Values</h3>
-            <div className="grid md:grid-cols-5 gap-6 mt-8">
-              {['Discretion', 'Authenticity', 'Excellence', 'Ambition', 'Legacy'].map((value, index) => (
-                <div key={index} className="text-center p-6 bg-[#0A0A0A] rounded-lg border border-[#2A2A2A] hover:border-[#D4AF37]/50 transition-colors">
-                  <p className="text-lg font-medium">{value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <p className="text-center text-xl text-[#CFCFCF] mt-16 italic max-w-3xl mx-auto">
-            "Elite Connect was built on one belief — that curated connections create both personal and financial growth."
+      {/* ABOUT PREVIEW SECTION */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">About Elite Connect</h2>
+          <p className="text-lg text-[#2C2C2C] leading-relaxed max-w-3xl mx-auto mb-8">
+            Elite Connect is a private circle dedicated to uniting Tunisia&apos;s most ambitious leaders and visionaries — offering access to powerful connections, curated opportunities, and a shared pursuit of legacy.
           </p>
+          <Link 
+            href="/about"
+            className="border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-widest font-medium inline-block"
+          >
+            Learn More About Us
+          </Link>
         </div>
       </section>
 
-      {/* MEMBERSHIP SECTION */}
-      <section id="membership" className="py-24 px-6 bg-[#0A0A0A]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">Membership</h2>
-            <p className="text-xl text-[#CFCFCF] max-w-3xl mx-auto">
-              Membership opens doors to an ecosystem of business, culture, and opportunity — reserved for those shaping tomorrow.
-            </p>
-          </div>
-
-          {/* Join the Community */}
-          <div className="mb-16 space-y-6">
-            <h3 className="text-2xl font-serif font-semibold text-[#D4AF37]">Join the Community</h3>
-            <p className="text-lg text-[#CFCFCF] leading-relaxed max-w-3xl">
-              Membership is by invitation only. Each applicant is individually reviewed for alignment with Elite Connect's values.
-            </p>
-          </div>
-
-          {/* Membership Tiers */}
-          <div className="mb-16 space-y-8">
-            <h3 className="text-2xl font-serif font-semibold text-[#D4AF37]">Membership Tiers</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-8 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg hover:border-[#D4AF37]/50 transition-colors">
-                <h4 className="text-xl font-serif font-semibold mb-4">Individual Membership</h4>
-                <p className="text-[#CFCFCF]">Entrepreneurs, leaders, creatives.</p>
-              </div>
-              <div className="p-8 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg hover:border-[#D4AF37]/50 transition-colors">
-                <h4 className="text-xl font-serif font-semibold mb-4">Corporate Membership</h4>
-                <p className="text-[#CFCFCF]">Companies seeking visibility, partnerships, and network access.</p>
-              </div>
-              <div className="p-8 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg hover:border-[#D4AF37]/50 transition-colors">
-                <h4 className="text-xl font-serif font-semibold mb-4">Tailored Membership</h4>
-                <p className="text-[#CFCFCF]">Fully customized for private clients and families.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Privileges & Benefits */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-serif font-semibold text-[#D4AF37]">Privileges & Benefits</h3>
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
-              {[
-                'Invitations to exclusive events',
-                'Access to investment and co-ownership projects',
-                'Strategic consulting and partnership facilitation',
-                'Lifestyle and hospitality perks'
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-start space-x-4 p-6 bg-[#1A1A1A] rounded-lg border border-[#2A2A2A]">
-                  <div className="w-6 h-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 rounded-full bg-[#D4AF37]"></div>
-                  </div>
-                  <p className="text-[#CFCFCF]">{benefit}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-16">
-            <button 
-              onClick={() => setShowApplyModal(true)}
-              className="border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-widest font-medium"
-            >
-              Apply for Membership
-            </button>
-          </div>
+      {/* MEMBERSHIP PREVIEW SECTION */}
+      <section className="py-24 px-6 bg-[#F7F5F0]">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">Membership</h2>
+          <p className="text-xl text-[#2C2C2C] max-w-3xl mx-auto mb-8">
+            Membership opens doors to an ecosystem of business, culture, and opportunity — reserved for those shaping tomorrow.
+          </p>
+          <Link 
+            href="/membership"
+            className="border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-widest font-medium inline-block"
+          >
+            View Membership Details
+          </Link>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="mt-auto bg-[#0A0A0A] py-12 px-6 border-t border-[#2A2A2A]">
+      <footer className="mt-auto bg-white py-12 px-6 border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
@@ -326,16 +240,16 @@ export default function HomePage() {
                 <EliteConnectLogo size={32} />
                 <span className="text-lg font-semibold">Elite Connect</span>
               </div>
-              <p className="text-sm text-[#CFCFCF]">
-                A private circle of leaders shaping Tunisia's future.
+              <p className="text-sm text-[#2C2C2C]">
+                A private circle of leaders shaping Tunisia&apos;s future.
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Navigation</h4>
-              <ul className="space-y-2 text-sm text-[#CFCFCF]">
+              <ul className="space-y-2 text-sm text-[#2C2C2C]">
                 <li><Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link></li>
-                <li><Link href="/#about" className="hover:text-[#D4AF37] transition-colors">About</Link></li>
-                <li><Link href="/#membership" className="hover:text-[#D4AF37] transition-colors">Membership</Link></li>
+                <li><Link href="/about" className="hover:text-[#D4AF37] transition-colors">About</Link></li>
+                <li><Link href="/membership" className="hover:text-[#D4AF37] transition-colors">Membership</Link></li>
                 <li><Link href="/investment" className="hover:text-[#D4AF37] transition-colors">Investment</Link></li>
                 <li><Link href="/consulting" className="hover:text-[#D4AF37] transition-colors">Consulting</Link></li>
                 <li><Link href="/journal" className="hover:text-[#D4AF37] transition-colors">Journal</Link></li>
@@ -345,21 +259,21 @@ export default function HomePage() {
               <h4 className="font-semibold mb-4">Connect</h4>
               <div className="flex space-x-4">
                 {['Instagram', 'LinkedIn', 'Twitter'].map((social, index) => (
-                  <a key={index} href="#" className="w-10 h-10 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center hover:border-[#D4AF37] transition-colors">
-                    <span className="text-xs text-[#CFCFCF]">{social[0]}</span>
+                  <a key={index} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:border-[#D4AF37] transition-colors">
+                    <span className="text-xs text-[#2C2C2C]">{social[0]}</span>
                   </a>
                 ))}
               </div>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-[#CFCFCF]">
+              <ul className="space-y-2 text-sm text-[#2C2C2C]">
                 <li><Link href="#" className="hover:text-[#D4AF37] transition-colors">Privacy Policy</Link></li>
                 <li><Link href="#" className="hover:text-[#D4AF37] transition-colors">Terms</Link></li>
               </ul>
             </div>
           </div>
-          <div className="text-center text-sm text-[#CFCFCF] pt-8 border-t border-[#2A2A2A]">
+          <div className="text-center text-sm text-[#2C2C2C] pt-8 border-t border-gray-200">
             <p>©️ 2025 Elite Connect. All Rights Reserved.</p>
           </div>
         </div>
@@ -367,54 +281,54 @@ export default function HomePage() {
 
       {/* APPLY MODAL */}
       {showApplyModal && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={() => setShowApplyModal(false)}>
-          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4" onClick={() => setShowApplyModal(false)}>
+          <div className="bg-white border border-gray-200 rounded-lg p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-3xl font-serif font-bold">Request an Invitation</h2>
+              <h2 className="text-3xl font-serif font-bold text-[#0A0A0A]">Request an Invitation</h2>
               <button 
                 onClick={() => setShowApplyModal(false)}
-                className="text-[#CFCFCF] hover:text-white text-3xl leading-none"
+                className="text-[#2C2C2C] hover:text-[#0A0A0A] text-3xl leading-none"
               >
                 ×
               </button>
             </div>
-            <p className="text-[#CFCFCF] mb-6">
+            <p className="text-[#2C2C2C] mb-6">
               Elite Connect membership and investment access are limited and reviewed individually.
             </p>
             <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); setShowApplyModal(false); }}>
               <div>
-                <label className="block text-sm font-medium mb-2 text-[#CFCFCF]">Full Name</label>
+                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Full Name</label>
                 <input 
                   type="text" 
                   required
-                  className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
+                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2 text-[#CFCFCF]">Profession / Company</label>
+                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Profession / Company</label>
                 <input 
                   type="text" 
                   required
-                  className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
+                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
                   placeholder="Entrepreneur, CEO, Designer..."
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2 text-[#CFCFCF]">Email</label>
+                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Email</label>
                 <input 
                   type="email" 
                   required
-                  className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
+                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
                   placeholder="john.doe@email.com"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2 text-[#CFCFCF]">Message / Motivation</label>
+                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Message / Motivation</label>
                 <textarea 
                   required
                   rows={6}
-                  className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all resize-none"
+                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all resize-none"
                   placeholder="Tell us about yourself and your motivation to join Elite Connect..."
                 />
               </div>

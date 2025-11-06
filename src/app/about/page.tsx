@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F5F0] text-[#0A0A0A]">
       {/* HEADER */}
-      <header className="w-full bg-[#F7F5F0]/95 backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
+      <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
             <EliteConnectLogo size={40} />

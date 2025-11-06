@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F5F0] text-[#0A0A0A]">
       {/* HEADER */}
-      <header className="w-full bg-[#F7F5F0]/95 backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
+      <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
             <EliteConnectLogo size={40} />
@@ -124,18 +124,12 @@ export default function HomePage() {
           loop 
           muted 
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: 1 }}
         >
           <source src="/videos/video tennis 3 eme choix.mov" type="video/quicktime" />
           <source src="/videos/video tennis 3 eme choix.mov" type="video/mp4" />
         </video>
-        
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" style={{ zIndex: 2 }}></div>
-        
-        {/* Champagne Gold Accent */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-transparent to-[#D4AF37]/5" style={{ zIndex: 3 }}></div>
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fade-in" style={{ zIndex: 4 }}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight tracking-tight">

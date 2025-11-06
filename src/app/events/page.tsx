@@ -76,6 +76,12 @@ export default function EventsPage() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
+            <Link 
+              href="/membership"
+              className="border border-[#D4AF37] text-[#D4AF37] px-6 py-2 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-wide"
+            >
+              Membre
+            </Link>
             <button 
               onClick={() => setShowApplyModal(true)}
               className="border border-[#D4AF37] text-[#D4AF37] px-6 py-2 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-wide"

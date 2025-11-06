@@ -28,10 +28,12 @@ export default function AboutPage() {
             >
               <button className="hover:opacity-60 transition-opacity duration-300 font-medium text-[#D4AF37]">About</button>
               {showAboutDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-4">
-                  <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Who We Are</Link>
-                  <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Our Story</Link>
-                  <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Our Values</Link>
+                <div className="absolute top-full left-0 pt-2 w-64">
+                  <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-4">
+                    <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Who We Are</Link>
+                    <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Our Story</Link>
+                    <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Our Values</Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -42,10 +44,12 @@ export default function AboutPage() {
             >
               <button className="hover:opacity-60 transition-opacity duration-300">Membership</button>
               {showMembershipDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-4">
-                  <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Join the Community</Link>
-                  <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Membership Tiers</Link>
-                  <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Privileges & Benefits</Link>
+                <div className="absolute top-full left-0 pt-2 w-64">
+                  <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-4">
+                    <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Join the Community</Link>
+                    <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Membership Tiers</Link>
+                    <Link href="/membership" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Privileges & Benefits</Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -56,10 +60,12 @@ export default function AboutPage() {
             >
               <button className="hover:opacity-60 transition-opacity duration-300">Events</button>
               {showEventsDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-4">
-                  <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Upcoming Events</Link>
-                  <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Past Events</Link>
-                  <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Private Experiences</Link>
+                <div className="absolute top-full left-0 pt-2 w-64">
+                  <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-4">
+                    <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Upcoming Events</Link>
+                    <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Past Events</Link>
+                    <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 transition-colors text-[#0A0A0A]">Private Experiences</Link>
+                  </div>
                 </div>
               )}
             </div>

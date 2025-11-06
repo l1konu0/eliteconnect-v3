@@ -32,9 +32,9 @@ export default function InvestmentPage() {
               {showAboutDropdown && (
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-4">
-                  <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Who We Are</Link>
-                  <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Our Story</Link>
-                  <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Our Values</Link>
+                    <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Who We Are</Link>
+                    <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Our Story</Link>
+                    <Link href="/#about" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Our Values</Link>
                   </div>
                 </div>
               )}
@@ -48,9 +48,9 @@ export default function InvestmentPage() {
               {showMembershipDropdown && (
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-4">
-                  <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Join the Community</Link>
-                  <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Membership Tiers</Link>
-                  <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Privileges & Benefits</Link>
+                    <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Join the Community</Link>
+                    <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Membership Tiers</Link>
+                    <Link href="/#membership" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Privileges & Benefits</Link>
                   </div>
                 </div>
               )}
@@ -64,9 +64,10 @@ export default function InvestmentPage() {
               {showEventsDropdown && (
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-4">
-                  <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Upcoming Events</Link>
-                  <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Past Events</Link>
-                  <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Private Experiences</Link>
+                    <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Upcoming Events</Link>
+                    <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Past Events</Link>
+                    <Link href="/events" className="block px-4 py-2 hover:bg-[#2A2A2A] transition-colors">Private Experiences</Link>
+                  </div>
                 </div>
               )}
             </div>

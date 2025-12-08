@@ -3,12 +3,23 @@
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState } from "react";
 import Link from "next/link";
+import { createClient } from "@/lib/supabase/client";
 
 export default function MembershipPage() {
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showMembershipDropdown, setShowMembershipDropdown] = useState(false);
   const [showEventsDropdown, setShowEventsDropdown] = useState(false);
+  const [formData, setFormData] = useState({
+    full_name: "",
+    profession_company: "",
+    email: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const supabase = createClient();
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F5F0] text-[#0A0A0A]">
@@ -235,50 +246,139 @@ export default function MembershipPage() {
             <p className="text-[#2C2C2C] mb-6">
               Elite Connect membership and investment access are limited and reviewed individually.
             </p>
-            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); setShowApplyModal(false); }}>
-              <div>
-                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Full Name</label>
-                <input 
-                  type="text" 
-                  required
-                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
-                  placeholder="John Doe"
-                />
+            {submitSuccess ? (
+              <div className="text-center space-y-4 py-8">
+                <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-[#0A0A0A]">
+                  Demande envoyée avec succès !
+                </h3>
+                <p className="text-[#2C2C2C]">
+                  Votre demande d'adhésion a été enregistrée. Nous vous contacterons sous peu.
+                </p>
+                <button
+                  onClick={() => {
+                    setShowApplyModal(false);
+                    setSubmitSuccess(false);
+                    setFormData({ full_name: "", profession_company: "", email: "", message: "" });
+                  }}
+                  className="mt-4 bg-[#D4AF37] text-[#0A0A0A] px-6 py-2 rounded-lg hover:bg-[#D4AF37]/90 transition-colors"
+                >
+                  Fermer
+                </button>
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Profession / Company</label>
-                <input 
-                  type="text" 
-                  required
-                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
-                  placeholder="Entrepreneur, CEO, Designer..."
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Email</label>
-                <input 
-                  type="email" 
-                  required
-                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
-                  placeholder="john.doe@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Message / Motivation</label>
-                <textarea 
-                  required
-                  rows={6}
-                  className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all resize-none"
-                  placeholder="Tell us about yourself and your motivation to join Elite Connect..."
-                />
-              </div>
-              <button 
-                type="submit"
-                className="w-full bg-[#D4AF37] text-[#0A0A0A] py-4 rounded-lg hover:bg-[#D4AF37]/90 transition-colors duration-300 font-medium uppercase tracking-wider"
+            ) : (
+              <form 
+                className="space-y-6" 
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  setSubmitting(true);
+                  setSubmitError(null);
+
+                  try {
+                    console.log("Tentative d'enregistrement:", formData);
+                    
+                    const { data, error } = await supabase
+                      .from("membership_requests")
+                      .insert({
+                        full_name: formData.full_name,
+                        profession_company: formData.profession_company,
+                        email: formData.email,
+                        message: formData.message,
+                        status: "pending",
+                      })
+                      .select();
+
+                    if (error) {
+                      console.error("❌ Erreur Supabase:", error);
+                      console.error("Code d'erreur:", error.code);
+                      console.error("Détails:", error.details);
+                      console.error("Message:", error.message);
+                      throw error;
+                    }
+
+                    console.log("✅ Demande enregistrée avec succès:", data);
+                    setSubmitSuccess(true);
+                  } catch (error: any) {
+                    console.error("❌ Erreur complète:", error);
+                    let errorMessage = "Une erreur est survenue. Veuillez réessayer.";
+                    
+                    if (error?.message) {
+                      errorMessage = error.message;
+                    } else if (error?.details) {
+                      errorMessage = error.details;
+                    } else if (typeof error === 'string') {
+                      errorMessage = error;
+                    }
+                    
+                    setSubmitError(`Erreur: ${errorMessage}. Si le problème persiste, vérifiez les politiques RLS dans Supabase.`);
+                  } finally {
+                    setSubmitting(false);
+                  }
+                }}
               >
-                Apply for Membership
-              </button>
-            </form>
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    {submitError}
+                  </div>
+                )}
+
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Full Name</label>
+                  <input 
+                    type="text" 
+                    required
+                    value={formData.full_name}
+                    onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
+                    className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Profession / Company</label>
+                  <input 
+                    type="text" 
+                    required
+                    value={formData.profession_company}
+                    onChange={(e) => setFormData({ ...formData, profession_company: e.target.value })}
+                    className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
+                    placeholder="Entrepreneur, CEO, Designer..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Email</label>
+                  <input 
+                    type="email" 
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
+                    placeholder="john.doe@email.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Message / Motivation</label>
+                  <textarea 
+                    required
+                    rows={6}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full bg-[#F7F5F0] border border-gray-300 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all resize-none"
+                    placeholder="Tell us about yourself and your motivation to join Elite Connect..."
+                  />
+                </div>
+                <button 
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full bg-[#D4AF37] text-[#0A0A0A] py-4 rounded-lg hover:bg-[#D4AF37]/90 transition-colors duration-300 font-medium uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {submitting ? "Envoi en cours..." : "Apply for Membership"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       )}

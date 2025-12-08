@@ -111,7 +111,7 @@ export default function InvestmentPage() {
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-[#D4AF37]">Investment Vision</h2>
             <div className="bg-[#F7F5F0] border-l-4 border-[#D4AF37] p-8 rounded-lg">
-              <p className="text-2xl md:text-3xl font-serif italic mb-6 text-white">
+              <p className="text-2xl md:text-3xl font-serif italic mb-6 text-[#0A0A0A]">
                 "Elite Connect bridges the gap between visionaries and investors — creating ventures where members don't just participate, they own."
               </p>
               <p className="text-lg text-[#2C2C2C] leading-relaxed">
@@ -262,22 +262,22 @@ export default function InvestmentPage() {
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={() => setShowApplyModal(false)}>
           <div className="bg-white border border-gray-200 rounded-lg p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-3xl font-serif font-bold">Request Access to Opportunities</h2>
-              <button onClick={() => setShowApplyModal(false)} className="text-[#2C2C2C] hover:text-white text-3xl leading-none">×</button>
+              <h2 className="text-3xl font-serif font-bold text-[#0A0A0A]">Request Access to Opportunities</h2>
+              <button onClick={() => setShowApplyModal(false)} className="text-[#2C2C2C] hover:text-[#0A0A0A] text-3xl leading-none">×</button>
             </div>
             <p className="text-[#2C2C2C] mb-6">Elite Connect investment opportunities are invitation-only and reviewed individually.</p>
             <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); setShowApplyModal(false); }}>
               <div>
                 <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Full Name</label>
-                <input type="text" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="John Doe" />
+                <input type="text" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="John Doe" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Email</label>
-                <input type="email" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="john.doe@email.com" />
+                <input type="email" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="john.doe@email.com" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Message</label>
-                <textarea required rows={6} className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent resize-none" placeholder="Tell us about your investment interests..." />
+                <textarea required rows={6} className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent resize-none" placeholder="Tell us about your investment interests..." />
               </div>
               <button type="submit" className="w-full bg-[#D4AF37] text-[#0A0A0A] py-4 rounded-lg hover:bg-[#D4AF37]/90 transition-colors font-medium uppercase tracking-wider">
                 Request Access

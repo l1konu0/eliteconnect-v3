@@ -119,7 +119,7 @@ export default function EventDetailsPage() {
 
             return {
               ...rsvp,
-              profiles: profile || null,
+              profiles: profile || undefined,
             };
           })
         );

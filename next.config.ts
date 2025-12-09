@@ -45,11 +45,13 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.supabase.co",
+              // Scripts: Next.js nécessite 'unsafe-eval' pour le hot reload et certaines fonctionnalités
+              // En production, on pourrait restreindre davantage, mais Next.js 16 avec Turbopack le nécessite
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.supabase.co https://vercel.live",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
-              "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+              "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://vercel.live",
               "frame-src 'self' https://*.supabase.co",
               "object-src 'none'",
               "base-uri 'self'",

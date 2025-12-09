@@ -159,7 +159,7 @@ export default function PortalEventsPage() {
   });
 
   const eventTypes = Array.from(new Set(events.map((e) => e.event_type)));
-  const cities = Array.from(new Set(events.map((e) => e.location_city).filter(Boolean)));
+  const cities = Array.from(new Set(events.map((e) => e.location_city).filter((city): city is string => city !== null && city !== undefined)));
 
   if (loading) {
     return (

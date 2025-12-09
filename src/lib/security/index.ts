@@ -54,3 +54,14 @@ export {
   getCSRFTokenForClient
 } from './csrf';
 
+// Server Component Security (RCE Protection)
+export {
+  safeString,
+  safeUrl,
+  safeEmail,
+  safeNumber,
+  safeBoolean,
+  safeObject,
+  safeStringArray
+} from './server-safe';
+

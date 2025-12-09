@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import LogoutButton from "@/components/logout-button";
+import { safeString, safeEmail, safeUrl } from "@/lib/security/server-safe";
 
 export default async function PortalPage() {
   const supabase = await createClient();
@@ -56,16 +57,16 @@ export default async function PortalPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <div className="flex items-center space-x-6 mb-4">
-              {profile?.profile_picture_url ? (
+              {safeUrl(profile?.profile_picture_url) ? (
                 <img
-                  src={profile.profile_picture_url}
-                  alt={profile.full_name || "Profile"}
+                  src={safeUrl(profile.profile_picture_url)!}
+                  alt={safeString(profile?.full_name, "Profile")}
                   className="w-20 h-20 rounded-full object-cover border-2 border-[#D4AF37]"
                 />
               ) : (
                 <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center border-2 border-gray-300">
                   <span className="text-gray-400 text-2xl font-serif">
-                    {(profile?.full_name || user.email || "U")[0].toUpperCase()}
+                    {safeString(profile?.full_name || user.email || "U")[0].toUpperCase()}
                   </span>
                 </div>
               )}
@@ -74,7 +75,7 @@ export default async function PortalPage() {
                   Portail Membre
                 </h1>
                 <p className="text-lg text-[#2C2C2C]">
-                  Bienvenue, {profile?.full_name || user.user_metadata?.full_name || user.email}
+                  Bienvenue, {safeString(profile?.full_name || user.user_metadata?.full_name || user.email)}
                 </p>
               </div>
             </div>
@@ -88,45 +89,45 @@ export default async function PortalPage() {
                 <CardDescription>Gérez vos informations personnelles</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {profile?.profile_picture_url && (
+                {safeUrl(profile?.profile_picture_url) && (
                   <div className="flex justify-center mb-4">
                     <img
-                      src={profile.profile_picture_url}
-                      alt={profile.full_name || "Profile"}
+                      src={safeUrl(profile.profile_picture_url)!}
+                      alt={safeString(profile?.full_name, "Profile")}
                       className="w-24 h-24 rounded-full object-cover border-2 border-[#D4AF37]"
                     />
                   </div>
                 )}
                 <div>
                   <p className="text-sm text-[#2C2C2C] mb-1">Nom complet</p>
-                  <p className="font-medium text-[#0A0A0A]">{profile?.full_name || "Non renseigné"}</p>
+                  <p className="font-medium text-[#0A0A0A]">{safeString(profile?.full_name, "Non renseigné")}</p>
                 </div>
                 <div>
                   <p className="text-sm text-[#2C2C2C] mb-1">Email</p>
-                  <p className="font-medium text-[#0A0A0A]">{user.email}</p>
+                  <p className="font-medium text-[#0A0A0A]">{safeEmail(user.email)}</p>
                 </div>
                 {profile?.job_title && (
                   <div>
                     <p className="text-sm text-[#2C2C2C] mb-1">Métier</p>
-                    <p className="font-medium text-[#0A0A0A]">{profile.job_title}</p>
+                    <p className="font-medium text-[#0A0A0A]">{safeString(profile.job_title)}</p>
                   </div>
                 )}
                 {profile?.company && (
                   <div>
                     <p className="text-sm text-[#2C2C2C] mb-1">Entreprise</p>
-                    <p className="font-medium text-[#0A0A0A]">{profile.company}</p>
+                    <p className="font-medium text-[#0A0A0A]">{safeString(profile.company)}</p>
                   </div>
                 )}
                 {profile?.phone_number && (
                   <div>
                     <p className="text-sm text-[#2C2C2C] mb-1">Téléphone</p>
-                    <p className="font-medium text-[#0A0A0A]">{profile.phone_number}</p>
+                    <p className="font-medium text-[#0A0A0A]">{safeString(profile.phone_number)}</p>
                   </div>
                 )}
                 {profile?.bio && (
                   <div>
                     <p className="text-sm text-[#2C2C2C] mb-1">À propos</p>
-                    <p className="font-medium text-[#0A0A0A] text-sm">{profile.bio}</p>
+                    <p className="font-medium text-[#0A0A0A] text-sm">{safeString(profile.bio)}</p>
                   </div>
                 )}
                 <Link href="/complete-profile">
@@ -147,7 +148,7 @@ export default async function PortalPage() {
                 <div>
                   <p className="text-sm text-[#2C2C2C] mb-1">Statut</p>
                   <p className="font-medium text-[#0A0A0A]">
-                    {profile?.membership_status || "En attente"}
+                    {safeString(profile?.membership_status, "En attente")}
                   </p>
                 </div>
                 <Button variant="outline" className="w-full border-[#D4AF37] text-[#D4AF37]">

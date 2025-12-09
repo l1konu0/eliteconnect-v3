@@ -2,6 +2,7 @@ import Link from "next/link";
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import Header from "@/components/header";
 import { createClient } from "@/lib/supabase/server";
+import { safeString, safeUrl } from "@/lib/security/server-safe";
 
 // ============================================
 // INTERFACE PARTENAIRE
@@ -27,10 +28,10 @@ function PartnerCard({ partner }: PartnerCardProps) {
     <div className="group flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-lg hover:border-[#D4AF37] hover:shadow-lg transition-all duration-300">
       {/* Image du logo partenaire */}
       <div className="w-full h-32 mb-4 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden">
-        {partner.logo_url ? (
+        {safeUrl(partner.logo_url) ? (
           <img
-            src={partner.logo_url}
-            alt={partner.name}
+            src={safeUrl(partner.logo_url)!}
+            alt={safeString(partner.name)}
             className="h-20 w-auto object-contain max-w-full"
           />
         ) : (
@@ -42,15 +43,16 @@ function PartnerCard({ partner }: PartnerCardProps) {
 
       {/* Nom du partenaire */}
       <h3 className="text-center text-sm font-medium text-[#0A0A0A] group-hover:text-[#D4AF37] transition-colors">
-        {partner.name}
+        {safeString(partner.name)}
       </h3>
     </div>
   );
 
-  if (partner.website_url) {
+  const safeWebsiteUrl = safeUrl(partner.website_url);
+  if (safeWebsiteUrl) {
     return (
       <a
-        href={partner.website_url}
+        href={safeWebsiteUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="cursor-pointer"

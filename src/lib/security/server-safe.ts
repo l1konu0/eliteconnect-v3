@@ -118,7 +118,7 @@ export function safeObject<T extends Record<string, unknown>>(
     } else if (typeof value === 'boolean') {
       sanitized[key as keyof T] = safeBoolean(value) as T[keyof T];
     } else if (value && typeof value === 'object' && !Array.isArray(value)) {
-      sanitized[key as keyof T] = safeObject(value, {}) as T[keyof T];
+      sanitized[key as keyof T] = safeObject(value as Record<string, unknown>, {}) as T[keyof T];
     } else {
       sanitized[key as keyof T] = value;
     }

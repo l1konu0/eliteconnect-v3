@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Sécurité : Activer les vérifications en production
-  eslint: {
-    ignoreDuringBuilds: true, // Temporairement désactivé pour le déploiement
-  },
+  // Note: ESLint configuration moved to eslint.config.js in Next.js 16+
+  // Use 'next lint' command or configure in eslint.config.js
   typescript: {
     ignoreBuildErrors: true, // Temporairement désactivé pour le déploiement
   },

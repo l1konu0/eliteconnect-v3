@@ -49,3 +49,6 @@ INSERT INTO public.membership_requests (
 -- 7. Vérifier que l'insertion a fonctionné
 SELECT * FROM public.membership_requests ORDER BY created_at DESC LIMIT 5;
 
+
+
+

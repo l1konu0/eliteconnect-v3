@@ -84,3 +84,6 @@ DROP TABLE IF EXISTS public.membership_requests CASCADE;
 3. Regardez les messages dans la console
 4. Copiez les erreurs et partagez-les
 
+
+
+

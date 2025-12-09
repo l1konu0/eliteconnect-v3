@@ -3,6 +3,7 @@
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import LogoutButton from "./logout-button";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,7 @@ interface HeaderProps {
 }
 
 export default function Header({ onRequestInvitation }: HeaderProps) {
+  const pathname = usePathname();
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showMembershipDropdown, setShowMembershipDropdown] = useState(false);
   const [showEventsDropdown, setShowEventsDropdown] = useState(false);
@@ -46,7 +48,7 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
   }, [supabase.auth]);
 
   return (
-    <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
+    <header className="w-full bg-[#F7F5F0]/80 backdrop-blur-xl fixed top-0 z-50 border-b border-gray-300/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3">
           <EliteConnectLogo size={40} />
@@ -88,6 +90,15 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
               </div>
             )}
           </div>
+
+          <Link 
+            href="/partners" 
+            className={`hover:opacity-60 transition-opacity duration-300 ${
+              pathname === '/partners' ? 'font-medium text-[#D4AF37]' : ''
+            }`}
+          >
+            Partners
+          </Link>
 
           {/* Membership Dropdown */}
           <div
@@ -167,9 +178,6 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
           </Link>
           <Link href="/journal" className="hover:opacity-60 transition-opacity duration-300">
             Journal
-          </Link>
-          <Link href="/partners" className="hover:opacity-60 transition-opacity duration-300">
-            Partners
           </Link>
         </nav>
 

@@ -61,3 +61,6 @@ WHERE table_schema = 'public' AND table_name = 'membership_requests';
 2. Cliquez sur "Refresh" dans Table Editor
 3. Vérifiez les filtres dans Table Editor (peut-être qu'un filtre est actif)
 
+
+
+

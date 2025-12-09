@@ -3,8 +3,10 @@
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function AboutPage() {
+  const pathname = usePathname();
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showMembershipDropdown, setShowMembershipDropdown] = useState(false);
@@ -37,6 +39,14 @@ export default function AboutPage() {
                 </div>
               )}
             </div>
+            <Link 
+              href="/partners" 
+              className={`hover:opacity-60 transition-opacity duration-300 ${
+                pathname === '/partners' ? 'font-medium text-[#D4AF37]' : ''
+              }`}
+            >
+              Partners
+            </Link>
             <div 
               className="relative"
               onMouseEnter={() => setShowMembershipDropdown(true)}

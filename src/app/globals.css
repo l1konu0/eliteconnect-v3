@@ -291,6 +291,89 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
+  
+  .elite-glass-strong {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .elite-gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+  }
+  
+  .elite-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(135deg, #D4AF37 0%, #1D3B2A 50%, #3C5F3C 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  
+  .elite-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .elite-shine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s;
+  }
+  
+  .elite-shine:hover::before {
+    left: 100%;
+  }
+  
+  .elite-card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .elite-card-hover:hover {
+    @apply transform -translate-y-2 shadow-elite-xl;
+    box-shadow: 0 20px 60px rgba(10, 10, 10, 0.15);
+  }
+  
+  .elite-button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .elite-button-glow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .elite-button-glow:hover::after {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 /* Animations personnalisées */
@@ -309,6 +392,30 @@
   
   .animate-scale-in {
     animation: scaleIn 0.4s ease-out;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
   }
 }
 
@@ -354,6 +461,45 @@
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Styles pour les composants shadcn/ui */
 @layer components {
   .btn-elite {
@@ -366,6 +512,33 @@
   
   .card-elite {
     @apply bg-card text-card-foreground border border-border/50 rounded-xl shadow-elite hover:shadow-elite-lg transition-all duration-300 ease-in-out;
+  }
+  
+  .card-elite-premium {
+    @apply bg-gradient-to-br from-white to-[#F8F8F8] text-card-foreground border border-[#D4AF37]/20 rounded-2xl shadow-elite-lg hover:shadow-elite-xl transition-all duration-500 ease-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-elite-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .card-elite-premium:hover::before {
+    opacity: 1;
+  }
+  
+  .card-elite-premium:hover {
+    @apply transform -translate-y-1;
+    border-color: #D4AF37/40;
   }
   
   .input-elite {

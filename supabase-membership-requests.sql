@@ -64,3 +64,6 @@ CREATE TRIGGER update_membership_requests_updated_at
   FOR EACH ROW
   EXECUTE FUNCTION public.update_membership_requests_updated_at();
 
+
+
+

@@ -1,15 +1,32 @@
 "use client";
 
 import EliteConnectLogo from "@/components/elite-connect-logo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/ui/button";
 
 export default function EventsPage() {
+  const pathname = usePathname();
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showMembershipDropdown, setShowMembershipDropdown] = useState(false);
   const [showEventsDropdown, setShowEventsDropdown] = useState(false);
   const [activeTab, setActiveTab] = useState<'upcoming' | 'past' | 'private'>('upcoming');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const supabase = createClient();
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    setIsAuthenticated(!!user);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F5F0] text-[#0A0A0A]">
@@ -38,6 +55,14 @@ export default function EventsPage() {
                 </div>
               )}
             </div>
+            <Link 
+              href="/partners" 
+              className={`hover:opacity-60 transition-opacity duration-300 ${
+                pathname === '/partners' ? 'font-medium text-[#D4AF37]' : ''
+              }`}
+            >
+              Partners
+            </Link>
             <div 
               className="relative"
               onMouseEnter={() => setShowMembershipDropdown(true)}
@@ -101,6 +126,13 @@ export default function EventsPage() {
           <p className="text-xl md:text-2xl text-[#2C2C2C] max-w-3xl mx-auto leading-relaxed mb-12">
             Our gatherings connect intelligence, influence, and inspiration.
           </p>
+          {isAuthenticated && (
+            <Link href="/portal/events">
+              <Button className="bg-[#D4AF37] text-[#0A0A0A] hover:bg-[#D4AF37]/90">
+                Voir tous les événements
+              </Button>
+            </Link>
+          )}
         </div>
       </section>
 

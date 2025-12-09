@@ -177,7 +177,7 @@ export default async function PortalPage() {
             <Card className="card-elite-premium border border-gray-200/50 shadow-elite-lg elite-card-hover">
               <CardHeader>
                 <CardTitle className="text-xl font-serif">Investissements</CardTitle>
-                <CardDescription>Vos opportunités d'investissement</CardDescription>
+                <CardDescription>Vos opportunités d&apos;investissement</CardDescription>
               </CardHeader>
               <CardContent>
                 <Link href="/investment">

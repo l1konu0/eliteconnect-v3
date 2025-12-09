@@ -17,8 +17,9 @@ export function generateCSRFToken(): string {
     crypto.getRandomValues(array);
   } else {
     // Fallback pour Node.js
-    const crypto = require('crypto');
-    crypto.randomFillSync(array);
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const nodeCrypto = require('crypto');
+    nodeCrypto.randomFillSync(array);
   }
   
   return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');

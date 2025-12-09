@@ -100,7 +100,7 @@ export function safeBoolean(value: boolean | null | undefined, defaultValue: boo
 /**
  * Sanitise un objet pour l'affichage (récursif)
  */
-export function safeObject<T extends Record<string, any>>(
+export function safeObject<T extends Record<string, unknown>>(
   obj: T | null | undefined,
   defaultValue: Partial<T> = {}
 ): Partial<T> {

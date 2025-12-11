@@ -44,17 +44,22 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
+  // Extract locale from pathname (could be /fr/... or /en/... or just /...)
+  const pathname = request.nextUrl.pathname;
+  const pathnameWithoutLocale = pathname.replace(/^\/(fr|en)/, '') || pathname;
+  const locale = pathname.match(/^\/(fr|en)/)?.[1] || 'fr';
+  
   if (
     !user &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/signup') &&
-    !request.nextUrl.pathname.startsWith('/auth') &&
-    !request.nextUrl.pathname.startsWith('/complete-profile') &&
-    request.nextUrl.pathname.startsWith('/portal')
+    !pathnameWithoutLocale.startsWith('/login') &&
+    !pathnameWithoutLocale.startsWith('/signup') &&
+    !pathnameWithoutLocale.startsWith('/auth') &&
+    !pathnameWithoutLocale.startsWith('/complete-profile') &&
+    pathnameWithoutLocale.startsWith('/portal')
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
-    url.pathname = '/login'
+    url.pathname = `/${locale}/login`
     return NextResponse.redirect(url)
   }
 

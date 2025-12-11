@@ -34,6 +34,7 @@ export default function LoginPage() {
 
       if (data.user) {
         router.push("/portal");
+        router.refresh();
       }
     } catch (error: any) {
       setError(error.message || "Une erreur est survenue lors de la connexion");

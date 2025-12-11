@@ -6,18 +6,24 @@ import { updateSession } from '@/lib/supabase/middleware';
 const intlMiddleware = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
-  // First, handle internationalization
-  const intlResponse = intlMiddleware(request);
-  
-  // Then, handle Supabase session
+  // Handle Supabase session first
   const supabaseResponse = await updateSession(request);
   
-  // If Supabase redirects, use that, otherwise use intl response
-  if (supabaseResponse && supabaseResponse.status !== 200) {
+  // If Supabase redirects (e.g., auth redirect), use that
+  if (supabaseResponse && supabaseResponse.status >= 300 && supabaseResponse.status < 400) {
     return supabaseResponse;
   }
   
-  // Return the intl response (it handles the locale routing)
+  // Then handle internationalization
+  const intlResponse = intlMiddleware(request);
+  
+  // Merge headers if needed
+  if (supabaseResponse && supabaseResponse.headers) {
+    supabaseResponse.headers.forEach((value, key) => {
+      intlResponse.headers.set(key, value);
+    });
+  }
+  
   return intlResponse;
 }
 

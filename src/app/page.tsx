@@ -1,6 +1,5 @@
 "use client";
 
-import EliteConnectLogo from "@/components/elite-connect-logo";
 import Link from "next/link";
 import Header from "@/components/header";
 
@@ -125,7 +124,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <EliteConnectLogo size={32} />
+                <img
+                  src="/logo-elite-connect.png"
+                  alt="Elite Connect Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                  style={{ maxWidth: '48px', maxHeight: '48px' }}
+                />
                 <span className="text-lg font-semibold">Elite Connect</span>
               </div>
               <p className="text-sm text-[#2C2C2C]">

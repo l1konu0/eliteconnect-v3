@@ -1,6 +1,5 @@
 "use client";
 
-import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -55,9 +54,15 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
   return (
     <header className="w-full bg-[#F7F5F0]/80 backdrop-blur-xl fixed top-0 z-50 border-b border-gray-300/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
-          <EliteConnectLogo size={32} className="sm:w-10 sm:h-10" />
-          <span className="text-base sm:text-lg font-semibold tracking-wide">Elite Connect</span>
+        <Link href="/" className="flex items-center">
+          <img
+            src="/logo-elite-connect.png"
+            alt="Elite Connect Logo"
+            width={50}
+            height={50}
+            className="object-contain sm:w-16 sm:h-16"
+            style={{ maxWidth: '60px', maxHeight: '60px' }}
+          />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8 text-sm">

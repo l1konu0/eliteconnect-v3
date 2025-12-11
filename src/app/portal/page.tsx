@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import EliteConnectLogo from "@/components/elite-connect-logo";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -36,9 +35,15 @@ export default async function PortalPage() {
       {/* Header */}
       <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3">
-            <EliteConnectLogo size={40} />
-            <span className="text-lg font-semibold tracking-wide">Elite Connect</span>
+          <Link href="/" className="flex items-center">
+            <img
+              src="/logo-elite-connect.png"
+              alt="Elite Connect Logo"
+              width={50}
+              height={50}
+              className="object-contain"
+              style={{ maxWidth: '60px', maxHeight: '60px' }}
+            />
           </Link>
 
           <div className="flex items-center space-x-4">
@@ -56,27 +61,49 @@ export default async function PortalPage() {
       <main className="pt-24 pb-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <div className="flex items-center space-x-6 mb-4">
-              {safeUrl(profile?.profile_picture_url) ? (
-                <img
-                  src={safeUrl(profile.profile_picture_url)!}
-                  alt={safeString(profile?.full_name, "Profile")}
-                  className="w-20 h-20 rounded-full object-cover border-2 border-[#D4AF37]"
-                />
-              ) : (
-                <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center border-2 border-gray-300">
-                  <span className="text-gray-400 text-2xl font-serif">
-                    {safeString(profile?.full_name || user.email || "U")[0].toUpperCase()}
-                  </span>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
+              <div className="flex items-center space-x-4">
+                {safeUrl(profile?.profile_picture_url) ? (
+                  <img
+                    src={safeUrl(profile.profile_picture_url)!}
+                    alt={safeString(profile?.full_name, "Profile")}
+                    className="w-20 h-20 rounded-full object-cover border-2 border-[#D4AF37]"
+                  />
+                ) : (
+                  <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center border-2 border-gray-300">
+                    <span className="text-gray-400 text-2xl font-serif">
+                      {safeString(profile?.full_name || user.email || "U")[0].toUpperCase()}
+                    </span>
+                  </div>
+                )}
+                <div className="sm:hidden">
+                  <img
+                    src="/logo-elite-connect.png"
+                    alt="Elite Connect Logo"
+                    width={80}
+                    height={80}
+                    className="object-contain"
+                    style={{ maxWidth: '80px', maxHeight: '80px' }}
+                  />
                 </div>
-              )}
-              <div>
-                <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#0A0A0A]">
+              </div>
+              <div className="text-center sm:text-left">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0A0A0A]">
                   Portail Membre
                 </h1>
-                <p className="text-lg text-[#2C2C2C]">
+                <p className="text-base sm:text-lg text-[#2C2C2C]">
                   Bienvenue, {safeString(profile?.full_name || user.user_metadata?.full_name || user.email)}
                 </p>
+              </div>
+              <div className="hidden sm:block ml-auto">
+                <img
+                  src="/logo-elite-connect.png"
+                  alt="Elite Connect Logo"
+                  width={120}
+                  height={120}
+                  className="object-contain"
+                  style={{ maxWidth: '120px', maxHeight: '120px' }}
+                />
               </div>
             </div>
           </div>

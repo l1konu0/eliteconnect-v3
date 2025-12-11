@@ -4,7 +4,6 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import EliteConnectLogo from "@/components/elite-connect-logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -46,8 +45,20 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[#F7F5F0] flex items-center justify-center px-6 py-12">
       <Card className="w-full max-w-md border border-gray-200 shadow-xl">
         <CardHeader className="text-center space-y-4">
-          <div className="flex justify-center">
-            <EliteConnectLogo size={48} />
+          <div className="flex justify-center mb-2">
+            <img
+              src="/logo-elite-connect.png"
+              alt="Elite Connect Logo"
+              width={150}
+              height={150}
+              className="object-contain block"
+              style={{ maxWidth: '150px', maxHeight: '150px', display: 'block' }}
+              onError={(e) => {
+                console.error('Erreur de chargement du logo:', e);
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+              onLoad={() => console.log('Logo chargé avec succès')}
+            />
           </div>
           <CardTitle className="text-3xl font-serif font-bold text-[#0A0A0A]">
             Connexion

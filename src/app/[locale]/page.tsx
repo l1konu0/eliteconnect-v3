@@ -21,6 +21,7 @@ export default function HomePage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: 1 }}
+          preload="auto"
         >
           <source src="/videos/video tennis 3 eme choix.mov" type="video/quicktime" />
           <source src="/videos/video tennis 3 eme choix.mov" type="video/mp4" />

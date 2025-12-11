@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from '@/i18n/routing';
 import { usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import LogoutButton from "./logout-button";
@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown } from "lucide-react";
+import LanguageSwitcher from "./language-switcher";
 
 interface HeaderProps {
   onRequestInvitation?: () => void;
@@ -192,6 +193,7 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
+          <LanguageSwitcher />
           {loading ? (
             <div className="w-20 h-8 bg-gray-200 animate-pulse rounded" />
           ) : user ? (
@@ -398,6 +400,9 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
 
             {/* Actions Mobile */}
             <div className="pt-4 border-t border-gray-200 space-y-3">
+              <div className="flex justify-center">
+                <LanguageSwitcher />
+              </div>
               {loading ? (
                 <div className="w-full h-10 bg-gray-200 animate-pulse rounded" />
               ) : user ? (

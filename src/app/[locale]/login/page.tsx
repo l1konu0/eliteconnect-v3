@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useRouter } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function LoginPage() {
+  const t = useTranslations();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +34,6 @@ export default function LoginPage() {
 
       if (data.user) {
         router.push("/portal");
-        router.refresh();
       }
     } catch (error: any) {
       setError(error.message || "Une erreur est survenue lors de la connexion");
@@ -61,10 +62,10 @@ export default function LoginPage() {
             />
           </div>
           <CardTitle className="text-3xl font-serif font-bold text-[#0A0A0A]">
-            Connexion
+            {t('auth.login.title')}
           </CardTitle>
           <CardDescription className="text-[#2C2C2C]">
-            Accédez à votre portail membre Elite Connect
+            {t('auth.login.subtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -77,7 +78,7 @@ export default function LoginPage() {
 
             <div className="space-y-2">
               <Label htmlFor="email" className="text-[#2C2C2C]">
-                Email
+                {t('auth.login.email')}
               </Label>
               <Input
                 id="email"
@@ -92,7 +93,7 @@ export default function LoginPage() {
 
             <div className="space-y-2">
               <Label htmlFor="password" className="text-[#2C2C2C]">
-                Mot de passe
+                {t('auth.login.password')}
               </Label>
               <Input
                 id="password"
@@ -110,7 +111,7 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full bg-[#D4AF37] text-[#0A0A0A] hover:bg-[#D4AF37]/90 uppercase tracking-wider font-medium"
             >
-              {loading ? "Connexion..." : "Se connecter"}
+              {loading ? t('auth.login.loading') : t('auth.login.submit')}
             </Button>
 
             <div className="text-center space-y-2 text-sm">
@@ -118,13 +119,13 @@ export default function LoginPage() {
                 href="/signup"
                 className="text-[#D4AF37] hover:underline block"
               >
-                Pas encore de compte ? Créer un compte
+                {t('auth.login.noAccount')}
               </Link>
               <Link
                 href="/auth/reset-password"
                 className="text-[#2C2C2C] hover:text-[#D4AF37] hover:underline block"
               >
-                Mot de passe oublié ?
+                {t('auth.login.forgotPassword')}
               </Link>
             </div>
           </form>

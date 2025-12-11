@@ -1,0 +1,166 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "partners": "Partners",
+    "membership": "Membership",
+    "events": "Events",
+    "investment": "Investment",
+    "consulting": "Consulting",
+    "journal": "Journal",
+    "login": "Login",
+    "signup": "Create Account",
+    "logout": "Logout",
+    "portal": "Portal",
+    "profile": "Profile",
+    "language": "Language",
+    "french": "French",
+    "english": "English"
+  },
+  "home": {
+    "hero": {
+      "title": "Where Ambition Meets Opportunity.",
+      "subtitle": "A private circle of leaders, creators, and investors shaping Tunisia's future together."
+    },
+    "pillars": {
+      "community": {
+        "title": "Community & Lifestyle",
+        "description": "Meaningful connections that transcend business."
+      },
+      "investment": {
+        "title": "Investment & Growth",
+        "description": "Exclusive co-ownership and wealth-building opportunities."
+      },
+      "advisory": {
+        "title": "Advisory & Consulting",
+        "description": "Strategic guidance for individuals and companies seeking excellence."
+      }
+    },
+    "about": {
+      "title": "About Elite Connect",
+      "description": "Elite Connect is a private circle dedicated to uniting Tunisia's most ambitious leaders and visionaries — offering access to powerful connections, curated opportunities, and a shared pursuit of legacy.",
+      "learnMore": "Learn More About Us"
+    },
+    "membership": {
+      "title": "Membership",
+      "description": "Membership opens doors to an ecosystem of business, culture, and opportunity — reserved for those shaping tomorrow.",
+      "viewDetails": "View Membership Details"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Access your Elite Connect member portal",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "loading": "Signing in...",
+      "noAccount": "Don't have an account? Create account",
+      "forgotPassword": "Forgot password?"
+    },
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Join the Elite Connect community",
+      "fullName": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "passwordMin": "Minimum 6 characters",
+      "submit": "Create my account",
+      "loading": "Signing up...",
+      "hasAccount": "Already have an account? Sign in",
+      "success": {
+        "title": "Sign up successful!",
+        "message": "Check your email to confirm your account.",
+        "details": "Once your email is verified, you can complete your profile and access your member portal.",
+        "redirecting": "Redirecting to login page..."
+      }
+    }
+  },
+  "portal": {
+    "title": "Member Portal",
+    "welcome": "Welcome",
+    "profile": {
+      "title": "My Profile",
+      "description": "Manage your personal information",
+      "fullName": "Full Name",
+      "email": "Email",
+      "job": "Job Title",
+      "company": "Company",
+      "phone": "Phone",
+      "about": "About",
+      "edit": "Edit Profile"
+    },
+    "membership": {
+      "title": "Membership",
+      "description": "Information about your membership",
+      "status": "Status",
+      "pending": "Pending",
+      "viewDetails": "View Details"
+    },
+    "events": {
+      "title": "Events",
+      "description": "Your upcoming events",
+      "noEvents": "No upcoming events",
+      "viewAll": "View all events"
+    },
+    "investment": {
+      "title": "Investment",
+      "description": "Your investment opportunities",
+      "explore": "Explore opportunities"
+    },
+    "consulting": {
+      "title": "Consulting",
+      "description": "Available consulting services",
+      "discover": "Discover services"
+    },
+    "journal": {
+      "title": "Journal",
+      "description": "Articles and news",
+      "read": "Read the journal"
+    },
+    "contacts": {
+      "title": "My Contacts",
+      "description": "Elite Connect network",
+      "view": "View my contacts"
+    },
+    "admin": {
+      "title": "Administration",
+      "description": "Site management",
+      "createEvent": "Create Event",
+      "manageEvents": "Manage Events",
+      "managePartners": "Manage Partners"
+    },
+    "backToSite": "Back to site"
+  },
+  "profile": {
+    "complete": {
+      "title": "Complete Your Profile",
+      "subtitle": "Fill in your information to access your member portal",
+      "photo": "Profile Photo",
+      "uploading": "Uploading...",
+      "format": "Format: JPG, PNG. Maximum 5MB",
+      "fullName": "Full Name *",
+      "email": "Email",
+      "jobTitle": "Job Title *",
+      "company": "Company / Organization *",
+      "phone": "Phone Number *",
+      "bio": "About You",
+      "submit": "Complete my profile",
+      "loading": "Saving...",
+      "skip": "Skip this step for now"
+    }
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "We are proud to collaborate with exceptional organizations and brands that share our vision of excellence and innovation."
+  },
+  "footer": {
+    "description": "A private circle of leaders shaping Tunisia's future.",
+    "navigation": "Navigation",
+    "connect": "Connect",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms",
+    "copyright": "©️ 2025 Elite Connect. All Rights Reserved."
+  }
+}

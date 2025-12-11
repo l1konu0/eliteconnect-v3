@@ -1,51 +1,12 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
-import "./globals.css";
+import { routing } from '@/i18n/routing';
+import { redirect } from 'next/navigation';
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-export const metadata: Metadata = {
-  title: "Elite Connect - Club Privé Exclusif",
-  description: "Rejoignez Elite Connect, le club privé inspiré de Soho House. Un espace exclusif pour les professionnels et créatifs d'exception.",
-  keywords: ["club privé", "réseau professionnel", "élite", "exclusif", "Soho House"],
-  authors: [{ name: "Elite Connect" }],
-  creator: "Elite Connect",
-  publisher: "Elite Connect",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-};
-
+// This page only renders when the pathname is missing a locale
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="fr" className="scroll-smooth">
-      <body
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+}) {
+  // Redirect to default locale
+  redirect(`/${routing.defaultLocale}`);
 }

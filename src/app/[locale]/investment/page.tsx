@@ -2,10 +2,10 @@
 
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from '@/i18n/routing';
+import { usePathname } from '@/i18n/routing';
 
-export default function ConsultingPage() {
+export default function InvestmentPage() {
   const pathname = usePathname();
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
@@ -15,7 +15,7 @@ export default function ConsultingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F5F0] text-[#0A0A0A]">
       {/* HEADER */}
-      <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-200">
+      <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
             <EliteConnectLogo size={40} />
@@ -28,7 +28,9 @@ export default function ConsultingPage() {
               onMouseEnter={() => setShowAboutDropdown(true)}
               onMouseLeave={() => setShowAboutDropdown(false)}
             >
-              <button className="hover:opacity-60 transition-opacity duration-300">About</button>
+              <button className="hover:opacity-60 transition-opacity duration-300">
+                About
+              </button>
               {showAboutDropdown && (
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-4">
@@ -79,8 +81,8 @@ export default function ConsultingPage() {
                 </div>
               )}
             </div>
-            <Link href="/investment" className="hover:opacity-60 transition-opacity duration-300">Investment</Link>
-            <Link href="/consulting" className="hover:opacity-60 transition-opacity duration-300 font-medium text-[#D4AF37]">Consulting</Link>
+            <Link href="/investment" className="hover:opacity-60 transition-opacity duration-300 font-medium text-[#D4AF37]">Investment</Link>
+            <Link href="/consulting" className="hover:opacity-60 transition-opacity duration-300">Consulting</Link>
             <Link href="/journal" className="hover:opacity-60 transition-opacity duration-300">Journal</Link>
           </nav>
 
@@ -105,110 +107,116 @@ export default function ConsultingPage() {
       <section className="pt-32 pb-24 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-8">
-            Consulting
+            Investment
           </h1>
           <p className="text-xl md:text-2xl text-[#2C2C2C] max-w-3xl mx-auto leading-relaxed">
-            Strategic guidance for business development, brand positioning, and partnership acceleration.
+            Wealth creation, business co-ownership, and project incubation.
           </p>
         </div>
       </section>
 
-      {/* ADVISORY & GROWTH */}
+      {/* INVESTMENT VISION */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-[#D4AF37]">Advisory & Growth</h2>
-            <div className="bg-[#F7F5F0] border-l-4 border-[#D4AF37] p-8 md:p-12 rounded-lg">
-              <p className="text-xl md:text-2xl text-[#2C2C2C] leading-relaxed">
-                Our consulting division empowers members and companies through strategic guidance in business development, brand positioning, and partnership acceleration.
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-[#D4AF37]">Investment Vision</h2>
+            <div className="bg-[#F7F5F0] border-l-4 border-[#D4AF37] p-8 rounded-lg">
+              <p className="text-2xl md:text-3xl font-serif italic mb-6 text-[#0A0A0A]">
+                "Elite Connect bridges the gap between visionaries and investors — creating ventures where members don't just participate, they own."
+              </p>
+              <p className="text-lg text-[#2C2C2C] leading-relaxed">
+                We identify, incubate, and fund promising projects in hospitality, lifestyle, tech, and real estate.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FOR MEMBERS & FOR COMPANIES */}
+      {/* CO-OWNERSHIP & PARTNERSHIPS */}
       <section className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#D4AF37]">For Members</h2>
-              <p className="text-lg text-[#2C2C2C] leading-relaxed">
-                Consulting benefits included for upper-tier memberships. Access to strategic guidance, network facilitation, and personalized advisory services.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  'Personalized business strategy',
-                  'Network facilitation',
-                  'Brand positioning support',
-                  'Partnership development'
-                ].map((benefit, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <div className="w-2 h-2 rounded-full bg-[#D4AF37]"></div>
-                    </div>
-                    <p className="text-[#2C2C2C]">{benefit}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#D4AF37]">For Companies</h2>
-              <p className="text-lg text-[#2C2C2C] leading-relaxed">
-                Tailored support for startups or established firms seeking expansion, restructuring, or repositioning.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  'Business growth strategy',
-                  'Market expansion planning',
-                  'Organizational restructuring',
-                  'Brand repositioning'
-                ].map((service, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <div className="w-2 h-2 rounded-full bg-[#D4AF37]"></div>
-                    </div>
-                    <p className="text-[#2C2C2C]">{service}</p>
-                  </li>
-                ))}
-              </ul>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12">Co-Ownership & Partnerships</h2>
+          <div className="bg-white border border-gray-200 rounded-lg p-8 md:p-12">
+            <p className="text-xl md:text-2xl text-[#2C2C2C] leading-relaxed mb-6">
+              Members have the opportunity to become co-founders or shareholders in exclusive Elite Connect ventures — private lounges, boutique brands, and digital startups.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mt-12">
+              <div className="p-6 bg-[#F7F5F0] rounded-lg border border-gray-200">
+                <h3 className="text-xl font-serif font-semibold mb-4 text-[#D4AF37]">Private Lounges</h3>
+                <p className="text-[#2C2C2C]">Exclusive members-only spaces for networking and lifestyle experiences.</p>
+              </div>
+              <div className="p-6 bg-[#F7F5F0] rounded-lg border border-gray-200">
+                <h3 className="text-xl font-serif font-semibold mb-4 text-[#D4AF37]">Boutique Brands</h3>
+                <p className="text-[#2C2C2C]">Curated luxury brands and lifestyle products with member ownership opportunities.</p>
+              </div>
+              <div className="p-6 bg-[#F7F5F0] rounded-lg border border-gray-200">
+                <h3 className="text-xl font-serif font-semibold mb-4 text-[#D4AF37]">Digital Startups</h3>
+                <p className="text-[#2C2C2C]">Tech innovation projects with strategic investment and co-ownership models.</p>
+              </div>
+              <div className="p-6 bg-[#F7F5F0] rounded-lg border border-gray-200">
+                <h3 className="text-xl font-serif font-semibold mb-4 text-[#D4AF37]">Real Estate</h3>
+                <p className="text-[#2C2C2C]">Premium property development and investment opportunities.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* EXPERTISE AREAS */}
+      {/* INAUGURATED PROJECTS */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-center">Expertise Areas</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: 'Business & Growth Strategy', desc: 'Strategic planning for sustainable growth and market positioning.' },
-              { title: 'Brand Positioning', desc: 'Develop a distinct brand identity and market presence.' },
-              { title: 'Networking Acceleration', desc: 'Access to exclusive networks and partnership opportunities.' },
-              { title: 'Partnership Development', desc: 'Facilitate strategic partnerships and collaborations.' }
-            ].map((area, index) => (
-              <div key={index} className="p-8 bg-[#F7F5F0] border border-gray-200 rounded-lg hover:border-[#D4AF37]/50 transition-colors">
-                <h3 className="text-xl font-serif font-semibold mb-4 text-[#D4AF37]">{area.title}</h3>
-                <p className="text-[#2C2C2C] leading-relaxed">{area.desc}</p>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12">Inaugurated Projects</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[#F7F5F0] border border-gray-200 rounded-lg overflow-hidden hover:border-[#D4AF37]/50 transition-colors">
+              <div className="h-64 bg-gradient-to-br from-[#1D3B2A] to-[#3C5F3C] flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-20 h-20 mx-auto mb-4 bg-[#D4AF37]/20 rounded-full flex items-center justify-center">
+                    <svg className="w-10 h-10 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-            ))}
+              <div className="p-8">
+                <h3 className="text-2xl font-serif font-semibold mb-4">The House by Elite Connect</h3>
+                <p className="text-[#2C2C2C] leading-relaxed">
+                  Upscale lounge concept providing an exclusive space for members to connect, work, and socialize in a sophisticated environment.
+                </p>
+              </div>
+            </div>
+            <div className="bg-[#F7F5F0] border border-gray-200 rounded-lg overflow-hidden hover:border-[#D4AF37]/50 transition-colors">
+              <div className="h-64 bg-gradient-to-br from-[#D4AF37]/20 to-[#1D3B2A] flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-20 h-20 mx-auto mb-4 bg-[#D4AF37]/20 rounded-full flex items-center justify-center">
+                    <svg className="w-10 h-10 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-serif font-semibold mb-4">EC Ventures</h3>
+                <p className="text-[#2C2C2C] leading-relaxed">
+                  Investment arm focused on hospitality and innovation, identifying and funding promising projects with high growth potential.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA SECTION */}
+      {/* INVESTMENT OPPORTUNITIES */}
       <section className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Ready to Accelerate Your Growth?</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">Investment Opportunities</h2>
           <p className="text-xl text-[#2C2C2C] max-w-2xl mx-auto mb-12 leading-relaxed">
-            Connect with our consulting team to discuss your strategic needs.
+            Invitation-only access to active or upcoming investment rounds.
           </p>
           <button 
             onClick={() => setShowApplyModal(true)}
             className="border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-widest font-medium"
           >
-            Request Consultation
+            Request Access to Opportunities
           </button>
         </div>
       </section>
@@ -259,44 +267,30 @@ export default function ConsultingPage() {
         </div>
       </footer>
 
-      {/* CONSULTATION MODAL */}
+      {/* APPLY MODAL */}
       {showApplyModal && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={() => setShowApplyModal(false)}>
           <div className="bg-white border border-gray-200 rounded-lg p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-3xl font-serif font-bold">Request Consultation</h2>
-              <button onClick={() => setShowApplyModal(false)} className="text-[#2C2C2C] hover:text-white text-3xl leading-none">×</button>
+              <h2 className="text-3xl font-serif font-bold text-[#0A0A0A]">Request Access to Opportunities</h2>
+              <button onClick={() => setShowApplyModal(false)} className="text-[#2C2C2C] hover:text-[#0A0A0A] text-3xl leading-none">×</button>
             </div>
-            <p className="text-[#2C2C2C] mb-6">Tell us about your consulting needs and we'll connect you with our team.</p>
+            <p className="text-[#2C2C2C] mb-6">Elite Connect investment opportunities are invitation-only and reviewed individually.</p>
             <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); setShowApplyModal(false); }}>
               <div>
                 <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Full Name</label>
-                <input type="text" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="John Doe" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Company / Organization</label>
-                <input type="text" className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="Company Name" />
+                <input type="text" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="John Doe" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Email</label>
-                <input type="email" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="john.doe@email.com" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Consulting Interest</label>
-                <select className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent">
-                  <option>Business & Growth Strategy</option>
-                  <option>Brand Positioning</option>
-                  <option>Networking Acceleration</option>
-                  <option>Partnership Development</option>
-                  <option>Other</option>
-                </select>
+                <input type="email" required className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent" placeholder="john.doe@email.com" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2 text-[#2C2C2C]">Message</label>
-                <textarea required rows={6} className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent resize-none" placeholder="Tell us about your consulting needs..." />
+                <textarea required rows={6} className="w-full bg-[#F7F5F0] border border-gray-200 rounded-lg px-4 py-3 text-[#0A0A0A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent resize-none" placeholder="Tell us about your investment interests..." />
               </div>
               <button type="submit" className="w-full bg-[#D4AF37] text-[#0A0A0A] py-4 rounded-lg hover:bg-[#D4AF37]/90 transition-colors font-medium uppercase tracking-wider">
-                Request Consultation
+                Request Access
               </button>
             </form>
           </div>

@@ -2,11 +2,12 @@
 
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from '@/i18n/routing';
 
 export default function AboutPage() {
   const pathname = usePathname();
+  // Remove locale from pathname for comparison
+  const pathnameWithoutLocale = pathname.replace(/^\/(fr|en)/, '') || pathname;
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showMembershipDropdown, setShowMembershipDropdown] = useState(false);

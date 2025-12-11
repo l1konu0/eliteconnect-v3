@@ -2,8 +2,8 @@
 
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from '@/i18n/routing';
+import { usePathname } from '@/i18n/routing';
 import { createClient } from "@/lib/supabase/client";
 
 export default function MembershipPage() {

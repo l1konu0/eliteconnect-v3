@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from '@/i18n/routing';
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from '@/i18n/routing';
 import { createClient } from "@/lib/supabase/client";
 import LogoutButton from "./logout-button";
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown } from "lucide-react";
-import LanguageSwitcher from "./language-switcher";
 
 interface HeaderProps {
   onRequestInvitation?: () => void;
@@ -21,6 +19,8 @@ interface HeaderProps {
 
 export default function Header({ onRequestInvitation }: HeaderProps) {
   const pathname = usePathname();
+  // Remove locale from pathname for comparison
+  const pathnameWithoutLocale = pathname.replace(/^\/(fr|en)/, '') || pathname;
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showMembershipDropdown, setShowMembershipDropdown] = useState(false);
   const [showEventsDropdown, setShowEventsDropdown] = useState(false);
@@ -102,14 +102,14 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
             )}
           </div>
 
-          <Link 
-            href="/partners" 
-            className={`hover:opacity-60 transition-opacity duration-300 ${
-              pathname === '/partners' ? 'font-medium text-[#D4AF37]' : ''
-            }`}
-          >
-            Partners
-          </Link>
+            <Link 
+              href="/partners" 
+              className={`hover:opacity-60 transition-opacity duration-300 ${
+                pathnameWithoutLocale === '/partners' ? 'font-medium text-[#D4AF37]' : ''
+              }`}
+            >
+              Partners
+            </Link>
 
           {/* Membership Dropdown */}
           <div
@@ -193,7 +193,6 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <LanguageSwitcher />
           {loading ? (
             <div className="w-20 h-8 bg-gray-200 animate-pulse rounded" />
           ) : user ? (
@@ -298,7 +297,7 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
               href="/partners"
               onClick={() => setMobileMenuOpen(false)}
               className={`block text-sm font-medium py-2 hover:text-[#D4AF37] transition-colors ${
-                pathname === '/partners' ? 'text-[#D4AF37]' : 'text-[#0A0A0A]'
+                pathnameWithoutLocale === '/partners' ? 'text-[#D4AF37]' : 'text-[#0A0A0A]'
               }`}
             >
               Partners
@@ -400,9 +399,6 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
 
             {/* Actions Mobile */}
             <div className="pt-4 border-t border-gray-200 space-y-3">
-              <div className="flex justify-center">
-                <LanguageSwitcher />
-              </div>
               {loading ? (
                 <div className="w-full h-10 bg-gray-200 animate-pulse rounded" />
               ) : user ? (

@@ -1,11 +1,18 @@
 import createMiddleware from 'next-intl/middleware';
-import { routing } from './src/i18n/routing';
+import { routing } from '@/i18n/routing';
 import { type NextRequest, NextResponse } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
 
 const intlMiddleware = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  
+  // Skip i18n for portal routes and API routes
+  if (pathname.startsWith('/portal') || pathname.startsWith('/api')) {
+    return await updateSession(request);
+  }
+  
   // Handle Supabase session first
   const supabaseResponse = await updateSession(request);
   
@@ -14,7 +21,7 @@ export async function middleware(request: NextRequest) {
     return supabaseResponse;
   }
   
-  // Then handle internationalization
+  // Then handle internationalization for other routes
   const intlResponse = intlMiddleware(request);
   
   // Merge headers if needed
@@ -35,9 +42,10 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      * - api (API routes)
+     * - portal (portal routes don't need locale)
      * Feel free to modify this pattern to include more paths.
      */
-    '/((?!_next/static|_next/image|favicon.ico|api|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|api|portal|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mov)$).*)',
   ],
 }
 

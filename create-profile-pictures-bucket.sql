@@ -103,3 +103,7 @@ ORDER BY policyname;
 SELECT '✅ Bucket profile-pictures créé avec succès!' as status;
 SELECT '✅ Politiques RLS configurées!' as status;
 
+
+
+
+

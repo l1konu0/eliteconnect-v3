@@ -126,3 +126,7 @@ Avec tous les éléments : 10/10
 **Dernière mise à jour** : Après implémentation CSRF
 **Prochaine révision** : Après implémentation 2FA
 
+
+
+
+

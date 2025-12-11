@@ -11,7 +11,7 @@ export default function HomePage() {
       <Header />
 
       {/* HERO SECTION */}
-      <section className="flex items-center justify-center h-screen text-center text-white relative overflow-hidden pt-20">
+      <section className="flex items-center justify-center min-h-screen text-center text-white relative overflow-hidden pt-20 pb-12">
         {/* Video Background */}
         <video 
           autoPlay 
@@ -25,16 +25,16 @@ export default function HomePage() {
           <source src="/videos/video tennis 3 eme choix.mov" type="video/mp4" />
         </video>
         
-        <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fade-in" style={{ zIndex: 4 }}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight tracking-tight">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 animate-fade-in" style={{ zIndex: 4 }}>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold mb-4 sm:mb-6 leading-tight tracking-tight">
             Where Ambition Meets Opportunity.
           </h1>
-          <p className="text-xl md:text-2xl text-white mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
             A private circle of leaders, creators, and investors shaping Tunisia&apos;s future together.
           </p>
           <Link 
             href="/membership"
-            className="elite-button-glow border-2 border-white bg-black/40 backdrop-blur-md text-white px-8 py-4 hover:bg-white hover:text-[#0A0A0A] transition-all duration-300 text-sm uppercase tracking-widest font-medium inline-block shadow-2xl font-bold relative overflow-hidden"
+            className="elite-button-glow border-2 border-white bg-black/40 backdrop-blur-md text-white px-6 sm:px-8 py-3 sm:py-4 hover:bg-white hover:text-[#0A0A0A] transition-all duration-300 text-xs sm:text-sm uppercase tracking-widest font-medium inline-block shadow-2xl font-bold relative overflow-hidden"
           >
             <span className="relative z-10">Request Invitation</span>
           </Link>
@@ -42,9 +42,9 @@ export default function HomePage() {
       </section>
 
       {/* PILLARS PREVIEW */}
-      <section className="py-24 px-6 bg-[#F7F5F0]">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
             {/* Community & Lifestyle */}
             <div className="text-center space-y-4 animate-slide-up elite-card-hover">
               <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#1D3B2A]/20 to-[#3C5F3C]/20 rounded-full flex items-center justify-center mb-6 elite-hover animate-float">
@@ -52,8 +52,8 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-serif font-semibold">Community & Lifestyle</h3>
-              <p className="text-[#2C2C2C] leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-serif font-semibold">Community & Lifestyle</h3>
+              <p className="text-sm sm:text-base text-[#2C2C2C] leading-relaxed">
                 Meaningful connections that transcend business.
               </p>
             </div>
@@ -65,8 +65,8 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-serif font-semibold">Investment & Growth</h3>
-              <p className="text-[#2C2C2C] leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-serif font-semibold">Investment & Growth</h3>
+              <p className="text-sm sm:text-base text-[#2C2C2C] leading-relaxed">
                 Exclusive co-ownership and wealth-building opportunities.
               </p>
             </div>
@@ -78,8 +78,8 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-serif font-semibold">Advisory & Consulting</h3>
-              <p className="text-[#2C2C2C] leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-serif font-semibold">Advisory & Consulting</h3>
+              <p className="text-sm sm:text-base text-[#2C2C2C] leading-relaxed">
                 Strategic guidance for individuals and companies seeking excellence.
               </p>
             </div>
@@ -88,15 +88,15 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT PREVIEW SECTION */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">About Elite Connect</h2>
-          <p className="text-lg text-[#2C2C2C] leading-relaxed max-w-3xl mx-auto mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">About Elite Connect</h2>
+          <p className="text-base sm:text-lg text-[#2C2C2C] leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
             Elite Connect is a private circle dedicated to uniting Tunisia&apos;s most ambitious leaders and visionaries — offering access to powerful connections, curated opportunities, and a shared pursuit of legacy.
           </p>
           <Link 
             href="/about"
-            className="border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-widest font-medium inline-block"
+            className="border-2 border-[#D4AF37] text-[#D4AF37] px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-xs sm:text-sm uppercase tracking-widest font-medium inline-block"
           >
             Learn More About Us
           </Link>
@@ -104,15 +104,15 @@ export default function HomePage() {
       </section>
 
       {/* MEMBERSHIP PREVIEW SECTION */}
-      <section className="py-24 px-6 bg-[#F7F5F0]">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-[#F7F5F0]">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">Membership</h2>
-          <p className="text-xl text-[#2C2C2C] max-w-3xl mx-auto mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">Membership</h2>
+          <p className="text-base sm:text-lg md:text-xl text-[#2C2C2C] max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
             Membership opens doors to an ecosystem of business, culture, and opportunity — reserved for those shaping tomorrow.
           </p>
           <Link 
             href="/membership"
-            className="border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-widest font-medium inline-block"
+            className="border-2 border-[#D4AF37] text-[#D4AF37] px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-xs sm:text-sm uppercase tracking-widest font-medium inline-block"
           >
             View Membership Details
           </Link>
@@ -120,9 +120,9 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="mt-auto bg-white py-12 px-6 border-t border-gray-200">
+      <footer className="mt-auto bg-white py-8 sm:py-12 px-4 sm:px-6 border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <EliteConnectLogo size={32} />

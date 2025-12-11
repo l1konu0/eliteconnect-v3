@@ -40,3 +40,7 @@ Les améliorations seront appliquées progressivement aux fichiers suivants :
 - `header.tsx` - Header avec glassmorphism
 - `portal/page.tsx` - Portail avec cartes améliorées
 
+
+
+
+

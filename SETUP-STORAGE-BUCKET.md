@@ -115,3 +115,7 @@ Si vous ne le voyez pas, créez-le avec les étapes ci-dessus.
 **Une fois le bucket créé, vous pourrez uploader des logos pour vos partenaires ! 🎉**
 
 
+
+
+
+

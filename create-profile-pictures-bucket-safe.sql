@@ -58,3 +58,7 @@ WITH CHECK (bucket_id = 'profile-pictures');
 -- ============================================
 SELECT '✅ Script exécuté! Vérifiez que le bucket existe dans Storage > Buckets' as status;
 
+
+
+
+

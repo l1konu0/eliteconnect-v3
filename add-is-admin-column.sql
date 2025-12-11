@@ -23,3 +23,7 @@ WHERE table_schema = 'public'
 -- Si vous voyez la colonne dans les résultats, c'est bon ! ✅
 
 
+
+
+
+

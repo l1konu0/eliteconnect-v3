@@ -207,3 +207,7 @@ ORDER BY full_name;
 -- 2. Remplacez les URLs ui-avatars.com par les URLs publiques des photos
 
 
+
+
+
+

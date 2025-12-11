@@ -175,3 +175,7 @@ ORDER BY category, display_order;
 -- Vous devriez voir 14 partenaires au total ✅
 
 
+
+
+
+

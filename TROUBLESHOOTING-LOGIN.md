@@ -157,3 +157,7 @@ Si le problème persiste :
 3. Vérifiez que le serveur de développement tourne (`npm run dev`)
 
 
+
+
+
+

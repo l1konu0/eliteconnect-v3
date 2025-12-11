@@ -367,3 +367,7 @@ Pour atteindre **10/10**, il faut :
 
 **Recommandation** : Commencer par la Phase 1 (critiques) pour atteindre 9/10 rapidement, puis progresser vers les phases suivantes selon les besoins et le budget.
 
+
+
+
+

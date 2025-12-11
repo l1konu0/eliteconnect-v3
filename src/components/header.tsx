@@ -13,6 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 interface HeaderProps {
   onRequestInvitation?: () => void;
@@ -23,6 +24,10 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showMembershipDropdown, setShowMembershipDropdown] = useState(false);
   const [showEventsDropdown, setShowEventsDropdown] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileMembershipOpen, setMobileMembershipOpen] = useState(false);
+  const [mobileEventsOpen, setMobileEventsOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
@@ -49,10 +54,10 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
 
   return (
     <header className="w-full bg-[#F7F5F0]/80 backdrop-blur-xl fixed top-0 z-50 border-b border-gray-300/50 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-3">
-          <EliteConnectLogo size={40} />
-          <span className="text-lg font-semibold tracking-wide">Elite Connect</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
+          <EliteConnectLogo size={32} className="sm:w-10 sm:h-10" />
+          <span className="text-base sm:text-lg font-semibold tracking-wide">Elite Connect</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8 text-sm">
@@ -231,7 +236,202 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
             </>
           )}
         </div>
+
+        {/* Menu Hamburger Mobile */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 text-[#0A0A0A] hover:bg-gray-100 rounded-lg transition-colors"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Menu Mobile */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-x-0 top-[73px] bg-white border-b border-gray-200 shadow-lg z-40 max-h-[calc(100vh-73px)] overflow-y-auto">
+          <nav className="px-4 py-6 space-y-4">
+            {/* About Mobile */}
+            <div>
+              <button
+                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                className="w-full flex items-center justify-between text-left text-sm font-medium text-[#0A0A0A] py-2 hover:text-[#D4AF37] transition-colors"
+              >
+                About
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileAboutOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  <Link
+                    href="/about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Who We Are
+                  </Link>
+                  <Link
+                    href="/about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Our Story
+                  </Link>
+                  <Link
+                    href="/about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Our Values
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/partners"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block text-sm font-medium py-2 hover:text-[#D4AF37] transition-colors ${
+                pathname === '/partners' ? 'text-[#D4AF37]' : 'text-[#0A0A0A]'
+              }`}
+            >
+              Partners
+            </Link>
+
+            {/* Membership Mobile */}
+            <div>
+              <button
+                onClick={() => setMobileMembershipOpen(!mobileMembershipOpen)}
+                className="w-full flex items-center justify-between text-left text-sm font-medium text-[#0A0A0A] py-2 hover:text-[#D4AF37] transition-colors"
+              >
+                Membership
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileMembershipOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileMembershipOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  <Link
+                    href="/membership"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Join the Community
+                  </Link>
+                  <Link
+                    href="/membership"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Membership Tiers
+                  </Link>
+                  <Link
+                    href="/membership"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Privileges & Benefits
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Events Mobile */}
+            <div>
+              <button
+                onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
+                className="w-full flex items-center justify-between text-left text-sm font-medium text-[#0A0A0A] py-2 hover:text-[#D4AF37] transition-colors"
+              >
+                Events
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileEventsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileEventsOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  <Link
+                    href="/events"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Upcoming Events
+                  </Link>
+                  <Link
+                    href="/events"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Past Events
+                  </Link>
+                  <Link
+                    href="/events"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-sm text-[#2C2C2C] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Private Experiences
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/investment"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-sm font-medium text-[#0A0A0A] py-2 hover:text-[#D4AF37] transition-colors"
+            >
+              Investment
+            </Link>
+            <Link
+              href="/consulting"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-sm font-medium text-[#0A0A0A] py-2 hover:text-[#D4AF37] transition-colors"
+            >
+              Consulting
+            </Link>
+            <Link
+              href="/journal"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-sm font-medium text-[#0A0A0A] py-2 hover:text-[#D4AF37] transition-colors"
+            >
+              Journal
+            </Link>
+
+            {/* Actions Mobile */}
+            <div className="pt-4 border-t border-gray-200 space-y-3">
+              {loading ? (
+                <div className="w-full h-10 bg-gray-200 animate-pulse rounded" />
+              ) : user ? (
+                <>
+                  <Link href="/portal" onClick={() => setMobileMenuOpen(false)} className="block w-full">
+                    <Button className="w-full bg-[#D4AF37] text-[#0A0A0A] hover:bg-[#D4AF37]/90 uppercase tracking-wide text-sm">
+                      Portail
+                    </Button>
+                  </Link>
+                  <div className="px-4 py-2 text-sm text-[#2C2C2C]">
+                    {user.user_metadata?.full_name || user.email?.split("@")[0]}
+                  </div>
+                  <div className="w-full">
+                    <LogoutButton />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="block w-full">
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0A0A0A] uppercase tracking-wide text-sm"
+                    >
+                      Membre
+                    </Button>
+                  </Link>
+                  <Link
+                    href="/membership"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full text-center border border-[#D4AF37] text-[#D4AF37] px-6 py-3 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-sm uppercase tracking-wide"
+                  >
+                    Request Invitation
+                  </Link>
+                </>
+              )}
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

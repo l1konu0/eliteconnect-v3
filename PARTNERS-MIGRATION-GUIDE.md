@@ -116,3 +116,7 @@ Vous devriez voir 14 partenaires au total.
 **Une fois la migration terminée, vous pourrez gérer tous les partenaires depuis le portail admin ! 🎉**
 
 
+
+
+
+

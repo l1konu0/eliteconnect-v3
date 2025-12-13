@@ -13,16 +13,16 @@ export async function middleware(request: NextRequest) {
     return await updateSession(request);
   }
   
-  // Handle Supabase session first
+  // Handle internationalization first (this will handle locale routing)
+  const intlResponse = intlMiddleware(request);
+  
+  // Handle Supabase session
   const supabaseResponse = await updateSession(request);
   
   // If Supabase redirects (e.g., auth redirect), use that
   if (supabaseResponse && supabaseResponse.status >= 300 && supabaseResponse.status < 400) {
     return supabaseResponse;
   }
-  
-  // Then handle internationalization for other routes
-  const intlResponse = intlMiddleware(request);
   
   // Merge headers if needed
   if (supabaseResponse && supabaseResponse.headers) {

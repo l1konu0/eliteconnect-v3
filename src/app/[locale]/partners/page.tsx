@@ -45,7 +45,6 @@ export default function PartnersPage() {
                   className="object-contain"
                   style={{ maxWidth: '32px', maxHeight: '32px' }}
                 />
-                <span className="text-lg font-semibold">Elite Connect</span>
               </div>
               <p className="text-sm text-[#2C2C2C]">
                 A private circle of leaders shaping Tunisia&apos;s future.

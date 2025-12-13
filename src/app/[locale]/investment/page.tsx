@@ -17,9 +17,8 @@ export default function InvestmentPage() {
       {/* HEADER */}
       <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center">
             <EliteConnectLogo size={40} />
-            <span className="text-lg font-semibold tracking-wide">Elite Connect</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8 text-sm">

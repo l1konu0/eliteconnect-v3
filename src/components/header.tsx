@@ -62,6 +62,7 @@ export default function Header({ onRequestInvitation }: HeaderProps) {
             width={50}
             height={50}
             className="object-contain sm:w-16 sm:h-16"
+            style={{ maxWidth: '64px', maxHeight: '64px' }}
             style={{ maxWidth: '60px', maxHeight: '60px' }}
           />
         </Link>

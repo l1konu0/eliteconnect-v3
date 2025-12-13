@@ -3,37 +3,60 @@
 import { useEffect } from 'react';
 
 /**
- * Composant qui ajoute automatiquement des animations aux paragraphes
- * Utilise l'Intersection Observer pour déclencher les animations au scroll
+ * Composant qui ajoute automatiquement des animations aux paragraphes au scroll
+ * Utilise l'Intersection Observer pour déclencher les animations de manière fluide
  */
 export default function ParagraphAnimator() {
   useEffect(() => {
-    const paragraphs = document.querySelectorAll('section p, section h2, section h3');
+    // Sélectionner tous les éléments de texte à animer
+    const selectors = [
+      'section p',
+      'section h1',
+      'section h2', 
+      'section h3',
+      'section h4',
+      'section li',
+      'section blockquote',
+      'article p',
+      'article h2',
+      'article h3',
+      'main p',
+      'main h2',
+      'main h3'
+    ];
+    
+    const elements = document.querySelectorAll(selectors.join(', '));
     
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const element = entry.target as HTMLElement;
-            element.style.setProperty('--paragraph-index', index.toString());
-            element.classList.add('animate-paragraph-visible');
+            
+            // Ajouter la classe d'animation
+            element.classList.add('scroll-animate-visible');
+            
+            // Ne plus observer cet élément
             observer.unobserve(element);
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.15, // Déclencher quand 15% de l'élément est visible
+        rootMargin: '0px 0px -80px 0px', // Déclencher 80px avant que l'élément soit visible
       }
     );
 
-    paragraphs.forEach((p) => {
-      observer.observe(p);
+    // Observer tous les éléments
+    elements.forEach((el) => {
+      // Ajouter la classe initiale pour l'état caché
+      (el as HTMLElement).classList.add('scroll-animate-hidden');
+      observer.observe(el);
     });
 
     return () => {
-      paragraphs.forEach((p) => {
-        observer.unobserve(p);
+      elements.forEach((el) => {
+        observer.unobserve(el);
       });
     };
   }, []);

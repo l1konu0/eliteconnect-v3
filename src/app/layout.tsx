@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import ParagraphAnimator from "@/components/paragraph-animator";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +39,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+        <ParagraphAnimator />
         {children}
       </body>
     </html>

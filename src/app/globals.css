@@ -202,8 +202,35 @@
     line-height: 1.7;
   }
   
-  /* Animation pour paragraphes dans les sections - Désactivé par défaut */
-  /* Utilisez les composants AnimatedParagraph et AnimatedSection pour activer les animations */
+  /* Animations automatiques au scroll pour paragraphes et titres */
+  section p,
+  section h1,
+  section h2,
+  section h3,
+  section h4,
+  section li,
+  section blockquote,
+  article p,
+  article h2,
+  article h3,
+  main p,
+  main h2,
+  main h3 {
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* État initial (caché) */
+  .scroll-animate-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  /* État visible (après animation) */
+  .scroll-animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   /* Styles pour les liens */
   a {

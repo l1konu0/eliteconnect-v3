@@ -217,9 +217,8 @@ export default function ConsultingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="flex items-center space-x-3 mb-4">
+              <div className="flex items-center mb-4">
                 <EliteConnectLogo size={32} />
-                <span className="text-lg font-semibold">Elite Connect</span>
               </div>
               <p className="text-sm text-[#2C2C2C]">A private circle of leaders shaping Tunisia's future.</p>
             </div>

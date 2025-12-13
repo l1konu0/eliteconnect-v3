@@ -133,8 +133,9 @@ export default function HomePage() {
           >
             {t('home.membership.viewDetails')}
           </Link>
-        </div>
-      </section>
+          </div>
+        </section>
+      </AnimatedSection>
 
       {/* FOOTER */}
       <footer className="mt-auto bg-white py-8 sm:py-12 px-4 sm:px-6 border-t border-gray-200">

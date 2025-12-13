@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
-import EliteConnectLogo from "@/components/elite-connect-logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -68,7 +67,14 @@ export default function ResetPasswordPage() {
       <Card className="w-full max-w-md border border-gray-200 shadow-xl">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <EliteConnectLogo size={48} />
+            <img
+              src="/logo-elite-connect.png"
+              alt="Elite Connect Logo"
+              width={48}
+              height={48}
+              className="object-contain"
+              style={{ maxWidth: '48px', maxHeight: '48px' }}
+            />
           </div>
           <CardTitle className="text-3xl font-serif font-bold text-[#0A0A0A]">
             Réinitialiser le mot de passe

@@ -1,6 +1,5 @@
 "use client";
 
-import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState } from "react";
 import { Link } from '@/i18n/routing';
 import { usePathname } from '@/i18n/routing';
@@ -29,7 +28,14 @@ export default function MembershipPage() {
       <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <EliteConnectLogo size={40} />
+            <img
+              src="/logo-elite-connect.png"
+              alt="Elite Connect Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+              style={{ maxWidth: '40px', maxHeight: '40px' }}
+            />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8 text-sm">
@@ -197,7 +203,14 @@ export default function MembershipPage() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center mb-4">
-                <EliteConnectLogo size={32} />
+                <img
+                  src="/logo-elite-connect.png"
+                  alt="Elite Connect Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                  style={{ maxWidth: '32px', maxHeight: '32px' }}
+                />
               </div>
               <p className="text-sm text-[#2C2C2C]">
                 A private circle of leaders shaping Tunisia&apos;s future.

@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-import EliteConnectLogo from "@/components/elite-connect-logo";
 import LogoutButton from "@/components/logout-button";
 import {
   Select,
@@ -276,7 +275,14 @@ export default function ManagePartnersPage() {
       <header className="w-full bg-[#F7F5F0] backdrop-blur-md fixed top-0 z-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/portal" className="flex items-center space-x-3">
-            <EliteConnectLogo size={40} />
+            <img
+              src="/logo-elite-connect.png"
+              alt="Elite Connect Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+              style={{ maxWidth: '40px', maxHeight: '40px' }}
+            />
           </Link>
 
           <div className="flex items-center space-x-4">

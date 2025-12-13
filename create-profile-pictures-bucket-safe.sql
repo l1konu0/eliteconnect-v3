@@ -62,3 +62,4 @@ SELECT '✅ Script exécuté! Vérifiez que le bucket existe dans Storage > Buck
 
 
 
+

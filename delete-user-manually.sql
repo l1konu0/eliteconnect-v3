@@ -68,3 +68,4 @@ END $$;
 --   
 --   RAISE NOTICE 'Toutes les données liées à l''utilisateur % (%) ont été supprimées.', user_email, user_uuid;
 -- END $$;
+

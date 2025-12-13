@@ -76,3 +76,4 @@ SELECT 'Test d insertion (peut échouer dans SQL Editor, c est normal):' as info
 
 
 
+

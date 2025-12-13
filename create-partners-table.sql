@@ -116,3 +116,4 @@ CREATE TRIGGER update_partners_updated_at
 
 
 
+

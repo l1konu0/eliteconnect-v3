@@ -71,3 +71,4 @@ Ces tables ont déjà `ON DELETE CASCADE` et ne nécessitent pas de modification
 - ✅ `event_photos` (uploaded_by)
 - ✅ `event_invitations` (invited_by, invited_user_id)
 - ✅ `events` (created_by)
+

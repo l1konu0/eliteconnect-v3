@@ -79,3 +79,4 @@ ALTER TABLE IF EXISTS public.membership_requests
 -- 
 -- Note : Toutes les données liées à l'utilisateur seront automatiquement supprimées
 -- grâce aux contraintes CASCADE, sauf membership_requests.reviewed_by qui sera mis à NULL.
+

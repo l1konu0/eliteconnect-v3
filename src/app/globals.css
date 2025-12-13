@@ -202,29 +202,8 @@
     line-height: 1.7;
   }
   
-  /* Animation pour paragraphes dans les sections */
-  section p,
-  section h2,
-  section h3 {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-  
-  section p.animate-paragraph-visible,
-  section h2.animate-paragraph-visible,
-  section h3.animate-paragraph-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Délai progressif pour les paragraphes consécutifs */
-  section p:nth-child(1) { transition-delay: 0ms; }
-  section p:nth-child(2) { transition-delay: 100ms; }
-  section p:nth-child(3) { transition-delay: 200ms; }
-  section p:nth-child(4) { transition-delay: 300ms; }
-  section p:nth-child(5) { transition-delay: 400ms; }
-  section p:nth-child(6) { transition-delay: 500ms; }
+  /* Animation pour paragraphes dans les sections - Désactivé par défaut */
+  /* Utilisez les composants AnimatedParagraph et AnimatedSection pour activer les animations */
   
   /* Styles pour les liens */
   a {
@@ -535,11 +514,11 @@
   }
 }
 
-/* Animations pour paragraphes et sections */
+/* Animations pour paragraphes et sections - Version plus subtile */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(15px); /* Réduit de 30px à 15px pour plus de subtilité */
   }
   to {
     opacity: 1;
@@ -559,7 +538,7 @@
 @keyframes slideLeft {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(15px); /* Réduit de 30px à 15px */
   }
   to {
     opacity: 1;
@@ -570,7 +549,7 @@
 @keyframes slideRight {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-15px); /* Réduit de 30px à 15px */
   }
   to {
     opacity: 1;
@@ -578,64 +557,64 @@
   }
 }
 
-/* Classes pour animations de paragraphes */
+/* Classes pour animations de paragraphes - Version plus subtile */
 .animate-fade-up-hidden {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(12px); /* Réduit de 30px à 12px */
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1); /* Plus doux avec cubic-bezier */
 }
 
 .animate-fade-up-visible {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-fade-in-hidden {
   opacity: 0;
-  transition: opacity 0.8s ease-out;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1); /* Plus doux */
 }
 
 .animate-fade-in-visible {
   opacity: 1;
-  transition: opacity 0.8s ease-out;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-slide-left-hidden {
   opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(15px); /* Réduit de 30px à 15px */
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-slide-left-visible {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-slide-right-hidden {
   opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(-15px); /* Réduit de 30px à 15px */
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-slide-right-visible {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Animations pour sections */
+/* Animations pour sections - Version plus subtile */
 .animate-section-hidden {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transform: translateY(20px); /* Réduit de 40px à 20px */
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-section-visible {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Animation stagger pour les enfants */

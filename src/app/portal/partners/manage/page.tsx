@@ -277,7 +277,6 @@ export default function ManagePartnersPage() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/portal" className="flex items-center space-x-3">
             <EliteConnectLogo size={40} />
-            <span className="text-lg font-semibold tracking-wide">Elite Connect</span>
           </Link>
 
           <div className="flex items-center space-x-4">

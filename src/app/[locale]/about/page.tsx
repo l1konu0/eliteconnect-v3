@@ -3,6 +3,8 @@
 import EliteConnectLogo from "@/components/elite-connect-logo";
 import { useState } from "react";
 import { Link, usePathname } from '@/i18n/routing';
+import AnimatedParagraph from "@/components/animated-paragraph";
+import AnimatedSection from "@/components/animated-section";
 
 export default function AboutPage() {
   const pathname = usePathname();
@@ -127,36 +129,50 @@ export default function AboutPage() {
       </section>
 
       {/* OUR STORY */}
-      <section className="py-24 px-6 bg-[#F7F5F0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#D4AF37]">Our Story</h2>
-            <p className="text-lg text-[#2C2C2C] leading-relaxed max-w-3xl">
-              Born from a desire to connect Tunisia&apos;s brightest minds, Elite Connect was founded to bridge social and professional ecosystems — blending business, culture, and influence in a single community.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* OUR VALUES */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#D4AF37]">Our Values</h2>
-            <div className="grid md:grid-cols-5 gap-6 mt-8">
-              {['Discretion', 'Authenticity', 'Excellence', 'Ambition', 'Legacy'].map((value, index) => (
-                <div key={index} className="text-center p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37]/50 transition-colors">
-                  <p className="text-lg font-medium text-[#0A0A0A]">{value}</p>
-                </div>
-              ))}
+      <AnimatedSection>
+        <section className="py-24 px-6 bg-[#F7F5F0]">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-16 space-y-6">
+              <AnimatedParagraph delay={0} animationType="fade-up">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#D4AF37]">Our Story</h2>
+              </AnimatedParagraph>
+              <AnimatedParagraph delay={200} animationType="fade-up">
+                <p className="text-lg text-[#2C2C2C] leading-relaxed max-w-3xl">
+                  Born from a desire to connect Tunisia&apos;s brightest minds, Elite Connect was founded to bridge social and professional ecosystems — blending business, culture, and influence in a single community.
+                </p>
+              </AnimatedParagraph>
             </div>
           </div>
+        </section>
+      </AnimatedSection>
 
-          <p className="text-center text-xl text-[#2C2C2C] mt-16 italic max-w-3xl mx-auto">
-            &quot;Elite Connect was built on one belief — that curated connections create both personal and financial growth.&quot;
-          </p>
-        </div>
-      </section>
+      {/* OUR VALUES */}
+      <AnimatedSection delay={100}>
+        <section className="py-24 px-6 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="space-y-6">
+              <AnimatedParagraph delay={0} animationType="fade-up">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#D4AF37]">Our Values</h2>
+              </AnimatedParagraph>
+              <div className="grid md:grid-cols-5 gap-6 mt-8">
+                {['Discretion', 'Authenticity', 'Excellence', 'Ambition', 'Legacy'].map((value, index) => (
+                  <AnimatedParagraph key={index} delay={index * 100} animationType="fade-up">
+                    <div className="text-center p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37]/50 transition-colors">
+                      <p className="text-lg font-medium text-[#0A0A0A]">{value}</p>
+                    </div>
+                  </AnimatedParagraph>
+                ))}
+              </div>
+            </div>
+
+            <AnimatedParagraph delay={600} animationType="fade-up">
+              <p className="text-center text-xl text-[#2C2C2C] mt-16 italic max-w-3xl mx-auto">
+                &quot;Elite Connect was built on one belief — that curated connections create both personal and financial growth.&quot;
+              </p>
+            </AnimatedParagraph>
+          </div>
+        </section>
+      </AnimatedSection>
 
       {/* FOOTER */}
       <footer className="mt-auto bg-white py-12 px-6 border-t border-gray-200">

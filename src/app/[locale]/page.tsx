@@ -3,6 +3,8 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Header from "@/components/header";
+import AnimatedParagraph from "@/components/animated-paragraph";
+import AnimatedSection from "@/components/animated-section";
 
 export default function HomePage() {
   const t = useTranslations();
@@ -31,9 +33,11 @@ export default function HomePage() {
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold mb-4 sm:mb-6 leading-tight tracking-tight">
             {t('home.hero.title')}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
-            {t('home.hero.subtitle')}
-          </p>
+          <AnimatedParagraph delay={200} animationType="fade-up">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
+              {t('home.hero.subtitle')}
+            </p>
+          </AnimatedParagraph>
           <Link 
             href="/membership"
             className="elite-button-glow border-2 border-white bg-black/40 backdrop-blur-md text-white px-6 sm:px-8 py-3 sm:py-4 hover:bg-white hover:text-[#0A0A0A] transition-all duration-300 text-xs sm:text-sm uppercase tracking-widest font-medium inline-block shadow-2xl font-bold relative overflow-hidden"
@@ -90,28 +94,39 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT PREVIEW SECTION */}
-      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">{t('home.about.title')}</h2>
-          <p className="text-base sm:text-lg text-[#2C2C2C] leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-            {t('home.about.description')}
-          </p>
+      <AnimatedSection>
+        <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-white">
+          <div className="max-w-6xl mx-auto text-center">
+            <AnimatedParagraph delay={0} animationType="fade-up">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">{t('home.about.title')}</h2>
+            </AnimatedParagraph>
+            <AnimatedParagraph delay={200} animationType="fade-up">
+              <p className="text-base sm:text-lg text-[#2C2C2C] leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
+                {t('home.about.description')}
+              </p>
+            </AnimatedParagraph>
           <Link 
             href="/about"
             className="border-2 border-[#D4AF37] text-[#D4AF37] px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-xs sm:text-sm uppercase tracking-widest font-medium inline-block"
           >
             {t('home.about.learnMore')}
           </Link>
-        </div>
-      </section>
+          </div>
+        </section>
+      </AnimatedSection>
 
       {/* MEMBERSHIP PREVIEW SECTION */}
-      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-[#F7F5F0]">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">{t('home.membership.title')}</h2>
-          <p className="text-base sm:text-lg md:text-xl text-[#2C2C2C] max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-            {t('home.membership.description')}
-          </p>
+      <AnimatedSection delay={100}>
+        <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-[#F7F5F0]">
+          <div className="max-w-6xl mx-auto text-center">
+            <AnimatedParagraph delay={0} animationType="fade-up">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">{t('home.membership.title')}</h2>
+            </AnimatedParagraph>
+            <AnimatedParagraph delay={200} animationType="fade-up">
+              <p className="text-base sm:text-lg md:text-xl text-[#2C2C2C] max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
+                {t('home.membership.description')}
+              </p>
+            </AnimatedParagraph>
           <Link 
             href="/membership"
             className="border-2 border-[#D4AF37] text-[#D4AF37] px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-colors duration-300 text-xs sm:text-sm uppercase tracking-widest font-medium inline-block"
